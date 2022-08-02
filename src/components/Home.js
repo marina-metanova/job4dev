@@ -1,7 +1,18 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
+import * as jobsServices from '../services/jobsService';
+
 export const Home = () => {
+
+    const games = jobsServices.getAllJobs()
+        .then(result => {
+            return result;
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
     return (
         <Fragment>
             <section className="container position-relative">

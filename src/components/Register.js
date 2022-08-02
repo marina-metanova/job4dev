@@ -31,7 +31,6 @@ export const Register = () => {
             company
         )
             .then(authData => {
-                console.log(authData);
                 userLogin(authData);
                 nav('/');
             })

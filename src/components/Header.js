@@ -5,6 +5,7 @@ import { AuthContext } from '../contexts/AuthContext';
 
 export const Header = () => {
     const {user} = useContext(AuthContext);
+    
     return (
         <header className="header">
             <div className="container justify-content-between align-items-center d-flex">
@@ -33,7 +34,7 @@ export const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/jobs">Jobs</Link>
                         </li>
-                        {user.email
+                        {user.company === 'on'
                             ?   <li className="nav-item">
                                     <Link className="nav-link" to="/add-job">Add job</Link>
                                 </li>
