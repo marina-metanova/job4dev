@@ -1,36 +1,37 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
     return (
         <Fragment>
             <section className="container position-relative">
                 <div className="sf-parallax">
-                    <img src="/img/parallax/sf-1.svg" alt="" id="el-1" data-value="-3" />
-                    <img src="/img/parallax/sf-2.svg" alt="" id="el-2" data-value="5" />
-                    <img src="/img/parallax/sf-3.svg" alt="" id="el-3" data-value="1" />
-                    <img src="/img/parallax/sf-4.svg" alt="" id="el-4" data-value="-1" />
-                    <img src="/img/parallax/sf-5.svg" alt="" id="el-5" data-value="4" />
-                    <img src="/img/parallax/sf-6.svg" alt="" id="el-6" data-value="2" />
-                    <img src="/img/parallax/sf-7.svg" alt="" id="el-7" data-value="-5" />
-                    <img src="/img/parallax/sf-8.svg" alt="" id="el-8" data-value="13" />
-                    <img src="/img/parallax/sf-9.svg" alt="" id="el-9" data-value="3" />
-                    <img src="/img/parallax/sf-10.svg" alt="" id="el-10" data-value="4" />
-                    <img src="/img/parallax/sf-11.svg" alt="" id="el-11" data-value="7" />
+                    <img src="/img/parallax/sf-1.svg" alt="parallax img" id="el-1" data-value="-3" />
+                    <img src="/img/parallax/sf-2.svg" alt="parallax img" id="el-2" data-value="5" />
+                    <img src="/img/parallax/sf-3.svg" alt="parallax img" id="el-3" data-value="1" />
+                    <img src="/img/parallax/sf-4.svg" alt="parallax img" id="el-4" data-value="-1" />
+                    <img src="/img/parallax/sf-5.svg" alt="parallax img" id="el-5" data-value="4" />
+                    <img src="/img/parallax/sf-6.svg" alt="parallax img" id="el-6" data-value="2" />
+                    <img src="/img/parallax/sf-7.svg" alt="parallax img" id="el-7" data-value="-5" />
+                    <img src="/img/parallax/sf-8.svg" alt="parallax img" id="el-8" data-value="13" />
+                    <img src="/img/parallax/sf-9.svg" alt="parallax img" id="el-9" data-value="3" />
+                    <img src="/img/parallax/sf-10.svg" alt="parallax img" id="el-10" data-value="4" />
+                    <img src="/img/parallax/sf-11.svg" alt="parallax img" id="el-11" data-value="7" />
                 </div>
                 <div className="row align-items-center">
                     <div className="col-lg-4 col-md-5">
                         <h1 className="position-relative">Join us Explore Thousands of Jobs
-                            <img src="/img/parallax/sf-12.svg" alt="" id="el-12" />
+                            <img src="/img/parallax/sf-12.svg" alt="parallax img" id="el-12" />
                         </h1>
                         <p>Find Jobs, Employment Career Opportunities</p>
                         <div className="d-none d-md-block btn-box">
-                            <a className="btn btn-blue font-weight-bold" href="#">All Jobs</a>
+                            <Link className="btn btn-blue font-weight-bold" to="/jobs">All Jobs</Link>
                         </div>
                     </div>
                     <div className="col-md-7 offset-lg-1">
-                        <img src="/img/home/header.png" alt="" width="738px" id="sf-img" />
+                        <img src="/img/home/header.png" alt="Title img" width="738px" id="sf-img" />
                         <div className="d-flex d-md-none justify-content-between btn-box">
-                            <a className="btn btn-blue font-weight-bold" href="#">All jobs</a>
+                            <Link className="btn btn-blue font-weight-bold" to="/jobs">All jobs</Link>
                         </div>
                     </div>
                 </div>
@@ -45,33 +46,33 @@ export const Home = () => {
                 <div className="features-main d-md-flex justify-content-between">
                     <div className="feature-box text-md-center col">
                         <figure>
-                            <img src="/img/companies/mailchimp.svg" alt="" />
+                            <img src="/img/companies/mailchimp.svg" alt="Logo" />
                         </figure>
                         <div>
                             <h4 className="h4">Junior Graphic Designer (Web)</h4>
                             <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" /> Design</span>
-                                <span><img src="/img/icons/location.svg" width="20px" /> Plovdiv</span>
-                                <span><img src="/img/icons/money.svg" width="20px" /> 1500-2000</span>
+                                <span><img src="/img/icons/job.svg" width="20px" alt="Social share" /> Design</span>
+                                <span><img src="/img/icons/location.svg" width="20px" alt="Social share" /> Plovdiv</span>
+                                <span><img src="/img/icons/money.svg" width="20px" alt="Social share" /> 1500-2000</span>
                             </div>
                             <p>As a Product Designer, you will work within a Product Delivery Team fused with.</p>
-                            <a href="" className="btn btn-blue">Read more</a>
+                            <Link to="/" className="btn btn-blue">Read more</Link>
                         </div>
                     </div>
 
                     <div className="feature-box text-md-center col">
                         <figure>
-                            <img src="/img/companies/atlassian-jira.svg" alt="" />
+                            <img src="/img/companies/atlassian-jira.svg" alt="Logo" />
                         </figure>
                         <div>
                             <h4 className="h4">Finance Manager  Health</h4>
                             <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" /> Design</span>
-                                <span><img src="/img/icons/location.svg" width="20px" /> Varna</span>
-                                <span><img src="/img/icons/money.svg" width="20px" /> 5000-6000</span>
+                                <span><img src="/img/icons/job.svg" width="20px" alt="Social share" /> Design</span>
+                                <span><img src="/img/icons/location.svg" width="20px" alt="Social share" /> Varna</span>
+                                <span><img src="/img/icons/money.svg" width="20px" alt="Social share" /> 5000-6000</span>
                             </div>
                             <p>As a Product Designer, you will work within a Product Delivery Team fused with.</p>
-                            <a href="" className="btn btn-blue">Read more</a>
+                            <Link to="/" className="btn btn-blue">Read more</Link>
                         </div>
                     </div>
                     <div className="feature-box text-md-center col">
@@ -81,17 +82,17 @@ export const Home = () => {
                         <div>
                             <h4 className="h4">Group Marketing Manager</h4>
                             <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" /> Marketing</span>
-                                <span><img src="/img/icons/location.svg" width="20px" /> Plovdiv</span>
-                                <span><img src="/img/icons/money.svg" width="20px" /> 1500-2000</span>
+                                <span><img src="/img/icons/job.svg" width="20px" alt="Social share" /> Marketing</span>
+                                <span><img src="/img/icons/location.svg" width="20px" alt="Social share" /> Plovdiv</span>
+                                <span><img src="/img/icons/money.svg" width="20px" alt="Social share" /> 1500-2000</span>
                             </div>
                             <p>As a Product Designer, you will work within a Product Delivery Team fused with.</p>
-                            <a href="" className="btn btn-blue">Read more</a>
+                            <Link to="/" className="btn btn-blue">Read more</Link>
                         </div>
                     </div>
                 </div>
                 <div className="btn-box text-center mb-5">
-                    <a className="btn btn-purple" href="">View all</a>
+                    <Link className="btn btn-purple" to="/jobs">View all</Link>
                 </div>
             </section>
 
