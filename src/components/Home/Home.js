@@ -1,11 +1,13 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import * as jobsServices from '../services/jobsService';
+import * as jobsServices from '../../services/jobsService';
+
+import { JobsHome } from './JobsHome';
 
 export const Home = () => {
 
-    const games = jobsServices.getAllJobs()
+    const jobs = jobsServices.getAllJobs()
         .then(result => {
             return result;
         })
@@ -49,27 +51,15 @@ export const Home = () => {
             </section>
 
             <section className="container">
-                <div>
-                    <h3>Featured Jobs</h3>
-                    <p>Know your worth and find the job that qualify your life</p>
-                </div>
+                <h3>Featured Jobs</h3>
+                <p>Know your worth and find the job that qualify your life</p>
 
                 <div className="features-main d-md-flex justify-content-between">
-                    <div className="feature-box text-md-center col">
-                        <figure>
-                            <img src="/img/companies/mailchimp.svg" alt="Logo" />
-                        </figure>
-                        <div>
-                            <h4 className="h4">Junior Graphic Designer (Web)</h4>
-                            <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" alt="Social share" /> Design</span>
-                                <span><img src="/img/icons/location.svg" width="20px" alt="Social share" /> Plovdiv</span>
-                                <span><img src="/img/icons/money.svg" width="20px" alt="Social share" /> 1500-2000</span>
-                            </div>
-                            <p>As a Product Designer, you will work within a Product Delivery Team fused with.</p>
-                            <Link to="/" className="btn btn-blue">Read more</Link>
-                        </div>
-                    </div>
+                    {jobs.length > 0
+                        ? jobs.map(job => <JobsHome key={job._id} job={job} />)
+                        : <p className="no-jobs">No jobs yet</p>
+                    }
+                    
 
                     <div className="feature-box text-md-center col">
                         <figure>

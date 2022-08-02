@@ -1,5 +1,7 @@
 import { Fragment } from 'react';
 
+import * as jobServices from '../services/jobsService';
+
 export const AddJob = () => {
 
     const onSubmit = (e) => {
@@ -14,7 +16,17 @@ export const AddJob = () => {
             description,
         } = Object.fromEntries(new FormData(e.target));
 
-
+        jobServices.createJob({
+            jobTitle,
+            category,
+            city,
+            salary,
+            logo,
+            description,
+        })
+            .then(result => {
+                console.log(result);
+            })
     }
     return (
         <Fragment>
