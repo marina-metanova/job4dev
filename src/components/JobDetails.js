@@ -1,6 +1,8 @@
+import { Fragment } from 'react';
+
 export const JobDetails = () => {
     return (
-        <main>
+        <Fragment>
             <div id="breadcrumb">
                 <nav aria-label="breadcrumb" className="container">
                     <ol className="breadcrumb mb-0">
@@ -39,6 +41,6 @@ export const JobDetails = () => {
                     </div>
                 </article>
             </section>
-        </main>
+        </Fragment>
     )
 }

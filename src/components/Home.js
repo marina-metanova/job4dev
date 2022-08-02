@@ -1,6 +1,8 @@
+import { Fragment } from 'react';
+
 export const Home = () => {
     return (
-        <main>
+        <Fragment>
             <section className="container position-relative">
                 <div className="sf-parallax">
                     <img src="/img/parallax/sf-1.svg" alt="" id="el-1" data-value="-3" />
@@ -166,6 +168,6 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        </Fragment>
     )
 }

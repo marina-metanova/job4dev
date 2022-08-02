@@ -1,6 +1,8 @@
+import { Fragment } from 'react';
+
 export const About = () => {
     return (
-        <main>
+        <Fragment>
             <div id="breadcrumb">
                 <nav aria-label="breadcrumb" className="container">
                     <ol className="breadcrumb mb-0">
@@ -74,6 +76,6 @@ export const About = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        </Fragment>
     )
 }

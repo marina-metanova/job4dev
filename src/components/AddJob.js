@@ -1,6 +1,8 @@
+import { Fragment } from 'react';
+
 export const AddJob = () => {
     return (
-        <main>
+        <Fragment>
             <section className="container">
                 <div className="text-center">
                     <h1 className="h1">Add New Job</h1>
@@ -55,6 +57,6 @@ export const AddJob = () => {
                 </form>
             </section>
 
-        </main>
+        </Fragment>
     )
 }

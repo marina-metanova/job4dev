@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import { Fragment } from 'react';
+
+import { AuthContext } from './contexts/AuthContext';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -14,24 +15,26 @@ import { ErrorPage } from './components/ErrorPage';
 function App() {
 
     return (
-        <Fragment>
+        <AuthContext.Provider value={{}}>
             <Header />
 
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/jobs' element={<Jobs />} />
-                <Route path='/add-job' element={<AddJob />} />
-                <Route path='/404' element={<ErrorPage />} />
-            </Routes>
+            <main>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/about' element={<About />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/jobs' element={<Jobs />} />
+                    <Route path='/add-job' element={<AddJob />} />
+                    <Route path='/404' element={<ErrorPage />} />
+                </Routes>
+            </main>
 
             <Footer />
 
             {/* <button onClick="topFunction()" id="back-top" title="Go to top"></button> */}
 
-        </Fragment>
+        </AuthContext.Provider>
     );
 }
 
