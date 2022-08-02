@@ -34,9 +34,9 @@ export const Header = () => {
                         </li>
                     </ul>
                     <div className="d-flex justify-content-between">
-                        <a href="contacts.html" className="btn btn-blue mx-md-3">Register</a>
-                        <a href="contacts.html" className="btn btn-light-blue">Login</a>
-                        <a href="contacts.html" className="btn btn-light-blue">Logout</a>
+                        <a href="/register" className="btn btn-blue mx-md-3">Register</a>
+                        <a href="/login" className="btn btn-light-blue">Login</a>
+                        <a href="/logout" className="btn btn-light-blue">Logout</a>
                     </div>
                 </div>
             </div>
