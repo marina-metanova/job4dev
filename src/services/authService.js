@@ -6,6 +6,16 @@ export const login = (email, password) => {
     return requester.post(`${baseURL}/login`, {email, password});
 }
 
+export const register = (fullName, email, password, rePass, company) => {
+    return requester.post(`${baseURL}/register`, {
+        fullName,
+        email,
+        password,
+        rePass,
+        company
+    });
+}
+
 export const logout = (accessToken) => {
     return fetch(`${baseURL}/logout`, {
         headers: {
