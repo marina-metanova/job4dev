@@ -1,6 +1,10 @@
-import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
+import { AuthContext } from '../contexts/AuthContext';
 
 export const Header = () => {
+    const {user} = useContext(AuthContext);
     return (
         <header className="header">
             <div className="container justify-content-between align-items-center d-flex">
@@ -29,15 +33,23 @@ export const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/jobs">Jobs</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/add-job">Add job</Link>
-                        </li>
+                        {user.email
+                            ?   <li className="nav-item">
+                                    <Link className="nav-link" to="/add-job">Add job</Link>
+                                </li>
+                            : ''
+                        }
                     </ul>
-                    <div className="d-flex justify-content-between">
-                        <a href="/register" className="btn btn-blue mx-md-3">Register</a>
-                        <a href="/login" className="btn btn-light-blue">Login</a>
-                        <a href="/logout" className="btn btn-light-blue">Logout</a>
-                    </div>
+                    {user.email
+                        ?   <div className="d-flex justify-content-between">
+                                <Link to="/logout" className="btn btn-light-blue">Logout</Link>
+                            </div>
+                        :   <div className="d-flex justify-content-between">
+                                <Link to="/register" className="btn btn-blue mx-md-3">Register</Link>
+                                <Link to="/login" className="btn btn-light-blue">Login</Link>
+                            </div>
+                    }
+                    
                 </div>
             </div>
         </header>

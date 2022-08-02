@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
@@ -7,15 +8,24 @@ import { Footer } from './components/Footer';
 import { Home } from './components/Home';
 import { About } from './components/About';
 import { Login } from './components/Login';
+import { Logout } from './components/Logout';
 import { Register } from './components/Register';
 import { Jobs } from './components/Jobs';
 import { AddJob } from './components/AddJob';
 import { ErrorPage } from './components/ErrorPage';
 
 function App() {
+    const [auth, setAuth] = useState({});
+
+    const userLogin = (authData) => {
+        setAuth(authData);
+    }
+    const userLogout = (authData) => {
+        setAuth({});
+    }
 
     return (
-        <AuthContext.Provider value={{}}>
+        <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
             <Header />
 
             <main>
@@ -23,6 +33,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/login' element={<Login />} />
+                    <Route path='/logout' element={<Logout />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/jobs' element={<Jobs />} />
                     <Route path='/add-job' element={<AddJob />} />

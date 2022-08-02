@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import * as authService from "../services/authService";
+import { AuthContext } from "../contexts/AuthContext";
 
 export const Login = () => {
+    const { userLogin } = useContext(AuthContext);
     const nav = useNavigate();
 
     const onSubmit = (e) => {
@@ -15,7 +18,7 @@ export const Login = () => {
 
         authService.login(email, password)
             .then(authData => {
-                console.log(authData);
+                userLogin(authData);
                 nav('/');
             })
             .catch(() => {
