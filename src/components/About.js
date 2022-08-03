@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 export const About = () => {
     return (
@@ -26,13 +27,13 @@ export const About = () => {
                             <h1 className="position-relative">About us</h1>
                             <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much.</p>
                             <div className="d-none d-md-block btn-box">
-                                <a className="btn btn-purple" href="about-us.html">Read more</a>
+                                <Link className="btn btn-purple" to="/jobs">View All Jobs</Link>
                             </div>
                         </div>
                         <div className="col-md-6">
                             <img src="/img/about/img-make-it-engage.png" alt="" id="sf-img" />
                             <div className="d-block d-md-none justify-content-between btn-box">
-                                <a className="btn btn-purple" href="about-us.html">Read more</a>
+                                <Link className="btn btn-purple" to="/jobs">View All Jobs</Link>
                             </div>
                         </div>
                     </div>

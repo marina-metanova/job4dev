@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import * as authService from "../services/authService";
 import { AuthContext } from "../contexts/AuthContext";
@@ -53,6 +53,7 @@ export const Login = () => {
 
                             <div className="col-12 text-center">
                                 <input type="submit" className="btn btn-blue" value='Login' />
+                                <small className="d-block pt-5">Don’t have an account? <Link to={'/register'}>Sign up</Link></small>
                             </div>
                         </div>
                     </div>

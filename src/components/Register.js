@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import * as authService from "../services/authService";
 import { AuthContext } from "../contexts/AuthContext";
@@ -87,6 +87,7 @@ export const Register = () => {
 
                             <div className="col-12 text-center">
                                 <button type="submit" className="btn btn-blue">Register</button>
+                                <small className="d-block pt-5">Already have an account? <Link to={'/login'}>Log in</Link></small>
                             </div>
                         </div>
                     </div>

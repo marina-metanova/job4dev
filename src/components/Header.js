@@ -32,8 +32,8 @@ export const Header = () => {
                     </Link>
                 </div>
 
-                <a href="tel:" id="btn-call" className="d-block d-lg-none">
-                    <img src="./public/img/icons/icon-call.svg" alt="" /></a>
+                <Link to="/" id="btn-call" className="d-block d-lg-none">
+                    <img src="/img/icons/icon-call.svg" alt="" /></Link>
 
                 <div className="navbar d-none d-lg-flex">
                     <ul className="nav justify-content-end">
