@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { MobileMenuContext } from "../contexts/MobileMenuContext";
+
 export const MobileMenu = () => {
+    const { isOpen } = useContext(MobileMenuContext);
     return (
-        <div id="mobile-menu" className="d-block d-lg-none">
+        <div id="mobile-menu" className={isOpen ? "d-block d-lg-none open" : "d-block d-lg-none"}>
             <div className="navbar" data-simplebar>
                 <ul className="nav flex-column">
                     <li className="nav-item">

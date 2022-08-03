@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 // Contexts
 import { AuthContext } from './contexts/AuthContext';
+import { MobileMenuContext } from './contexts/MobileMenuContext';
 import { JobContext } from './contexts/JobContext';
 
 // Services
@@ -26,10 +27,12 @@ import { JobDetails } from './components/JobDetails'
 // Custom hooks
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import { MobileMenu } from './components/MobileMenu';
 
 function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
     const [jobs, setJobs] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
     const nav = useNavigate();
 
     useEffect(() => {
@@ -66,28 +69,31 @@ function App() {
 
     return (
         <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
-            <Header />
+            <MobileMenuContext.Provider value={{ isOpen, setIsOpen }}>
+                <Header />
 
-            <main>
-                <JobContext.Provider value={{jobs, addJob, editJob}}>
-                    <Routes>
-                        <Route path='/' element={<Home jobs={jobs} />} />
-                        <Route path='/jobs' element={<Jobs />} />
-                        <Route path='/add-job' element={<AddJob />} />
-                        <Route path='/edit-job/:jobID' element={<EditJob />} />
-                        <Route path='/delete-job/:jobID' element={<DeleteJob />} />
-                        <Route path='/jobs/:jobID' element={<JobDetails />} />
-                        <Route path='/404' element={<ErrorPage />} />
-                        <Route path='/about' element={<About />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/logout' element={<Logout />} />
-                        <Route path='/register' element={<Register />} />
-                    </Routes>
-                </JobContext.Provider>
-            </main>
+                <main>
+                    <JobContext.Provider value={{ jobs, addJob, editJob }}>
+                        <Routes>
+                            <Route path='/' element={<Home jobs={jobs} />} />
+                            <Route path='/jobs' element={<Jobs />} />
+                            <Route path='/add-job' element={<AddJob />} />
+                            <Route path='/edit-job/:jobID' element={<EditJob />} />
+                            <Route path='/delete-job/:jobID' element={<DeleteJob />} />
+                            <Route path='/jobs/:jobID' element={<JobDetails />} />
+                            <Route path='/404' element={<ErrorPage />} />
+                            <Route path='/about' element={<About />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/logout' element={<Logout />} />
+                            <Route path='/register' element={<Register />} />
+                        </Routes>
+                    </JobContext.Provider>
+                </main>
 
-            <Footer />
+                <Footer />
 
+                <MobileMenu />
+            </MobileMenuContext.Provider>
             <ScrollToTop />
 
         </AuthContext.Provider>

@@ -2,14 +2,24 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../contexts/AuthContext';
+import { MobileMenuContext } from '../contexts/MobileMenuContext';
 
 export const Header = () => {
     const { user } = useContext(AuthContext);
+    const { isOpen, setIsOpen } = useContext(MobileMenuContext);
+
+    const openMenu = () => {
+        if (isOpen === false) {
+            setIsOpen(true);
+        } else {
+            setIsOpen(false);
+        }
+    }
 
     return (
         <header className="header">
             <div className="container justify-content-between align-items-center d-flex">
-                <span className="d-block d-lg-none" id="btn-menu">
+                <span className={isOpen ? "d-block d-lg-none open" : "d-block d-lg-none"} id="btn-menu" onClick={openMenu}>
                     <span></span>
                     <span></span>
                     <span></span>
