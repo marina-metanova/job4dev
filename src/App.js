@@ -25,6 +25,7 @@ import { JobDetails } from './components/JobDetails'
 
 // Custom hooks
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
 
 function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
@@ -87,7 +88,7 @@ function App() {
 
             <Footer />
 
-            {/* <button onClick="topFunction()" id="back-top" title="Go to top"></button> */}
+            <ScrollToTop />
 
         </AuthContext.Provider>
     );

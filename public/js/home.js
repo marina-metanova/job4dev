@@ -1,4 +1,3 @@
-
 // Parallax
 if ($(window).width() >= 992) {
     document.addEventListener("mousemove", parallax);
@@ -12,24 +11,4 @@ if ($(window).width() >= 992) {
             shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
         });
     }
-}
-
-// Companies
-if ($(window).width() < 992) {
-    $('.companies-main').addClass('owl-carousel');
-    $('.companies-main').owlCarousel({
-        margin: 10,
-        loop: true,
-        autoWidth: true
-    })
-}
-
-// Team
-if ($(window).width() < 992) {
-    $('.team-main').addClass('owl-carousel');
-    $('.team-main').owlCarousel({
-        margin: 24,
-        loop: true,
-        autoWidth: true
-    })
 }
