@@ -1,11 +1,12 @@
 import { Fragment, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Job } from './Job';
 
 import { JobContext } from '../../contexts/JobContext';
 
 export const Jobs = () => {
+    const { category } = useParams();
     const { jobs } = useContext(JobContext);
     return (
         <Fragment>
@@ -22,10 +23,15 @@ export const Jobs = () => {
                 <h3 className="h3 mb-5">All jobs</h3>
 
                 <div className="row jobs-list">
-                    {jobs.length > 0
-                        ? jobs.map(job => <Job key={job._id} job={job} />)
-                        : <p className="no-jobs">No jobs yet</p>
+                    {category
+                        ? jobs.length > 0
+                            ? jobs.map(job => job.category === category || job.city === category ? <Job key={job._id} job={job} /> : "")
+                            : <p className="no-jobs">No jobs yet</p>
+                        : jobs.length > 0
+                            ? jobs.map(job => <Job key={job._id} job={job} />)
+                            : <p className="no-jobs">No jobs yet</p>
                     }
+                    
                 </div>
 
             <nav>

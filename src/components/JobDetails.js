@@ -42,8 +42,8 @@ export const JobDetails = () => {
                         <h5 className="h5 mb-2">{job.company}</h5>
                         <div className="d-block d-md-flex justify-content-between">
                             <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" alt='Job icon' /> {job.category}</span>
-                                <span><img src="/img/icons/location.svg" width="20px" alt='Location icon' /> {job.city}</span>
+                                <span><img src="/img/icons/job.svg" width="20px" alt='Job icon' /> <Link to={`/${(job.category)}`}>{job.category}</Link></span>
+                                <span><img src="/img/icons/location.svg" width="20px" alt='Location icon' /> <Link to={`/${(job.city)}`}>{job.city}</Link></span>
                                 <span><img src="/img/icons/money.svg" width="20px" alt='Money icon' /> {job.salary}</span>
                             </div>
                             {user._id === job._ownerId

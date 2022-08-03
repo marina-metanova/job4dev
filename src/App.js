@@ -76,6 +76,7 @@ function App() {
                         <Routes>
                             <Route path='/' element={<Home jobs={jobs} />} />
                             <Route path='/jobs' element={<Jobs />} />
+                            <Route path='/:category' element={<Jobs />} />
                             <Route path='/add-job' element={<AddJob />} />
                             <Route path='/edit-job/:jobID' element={<EditJob />} />
                             <Route path='/delete-job/:jobID' element={<DeleteJob />} />
