@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { AuthContext } from '../contexts/AuthContext';
 import { MobileMenuContext } from '../contexts/MobileMenuContext';
@@ -38,28 +38,28 @@ export const Header = () => {
                 <div className="navbar d-none d-lg-flex">
                     <ul className="nav justify-content-end">
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/">Home</Link>
+                            <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/about">About us</Link>
+                            <NavLink className="nav-link" to="/about">About us</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/jobs">Jobs</Link>
+                            <NavLink className="nav-link" to="/jobs">Jobs</NavLink>
                         </li>
                         {user.company === 'on'
                             ? <li className="nav-item">
-                                <Link className="nav-link" to="/add-job">Add job</Link>
+                                <NavLink className="nav-link" to="/add-job">Add job</NavLink>
                             </li>
                             : ''
                         }
                     </ul>
                     {user.email
                         ? <div className="d-flex justify-content-between">
-                            <Link to="/logout" className="btn btn-light-blue">Logout</Link>
+                            <NavLink to="/logout" className="btn btn-light-blue">Logout</NavLink>
                         </div>
                         : <div className="d-flex justify-content-between">
-                            <Link to="/register" className="btn btn-blue mx-md-3">Register</Link>
-                            <Link to="/login" className="btn btn-light-blue">Login</Link>
+                            <NavLink to="/register" className="btn btn-blue mx-md-3">Register</NavLink>
+                            <NavLink to="/login" className="btn btn-light-blue">Login</NavLink>
                         </div>
                     }
 

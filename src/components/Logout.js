@@ -17,8 +17,7 @@ export const Logout = () => {
             .catch(() => {
                 nav('/404');
             });
-
-    }, )
+    }, [])
 
     return null;
 }

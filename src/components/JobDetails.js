@@ -50,7 +50,11 @@ export const JobDetails = () => {
                                         <Link to={`/edit-job/${jobID}`} className="btn btn-blue">Edit Job</Link>
                                         <Link to={`/delete-job/${jobID}`} className="btn btn-blue">Delete Job</Link>
                                     </Fragment>
-                                : <Link to="" className="btn btn-blue">Apply Job</Link>
+                                : ""
+                            }
+                            {user._id && user._id !== job._ownerId
+                                ? <Link to="" className="btn btn-blue">Apply Job</Link>
+                                : ""
                             }
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import { Fragment, useContext, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { AuthContext } from '../contexts/AuthContext';
 import { MobileMenuContext } from "../contexts/MobileMenuContext";
@@ -19,30 +19,30 @@ export const MobileMenu = () => {
             <div className="navbar" data-simplebar>
                 <ul className="nav flex-column">
                     <li className="nav-item">
-                        <Link className="nav-link active" to="/">Home</Link>
+                        <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/about">About</Link>
+                        <NavLink className="nav-link" to="/about">About</NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/jobs">Jobs</Link>
+                        <NavLink className="nav-link" to="/jobs">Jobs</NavLink>
                     </li>
                     {user.company === 'on'
                         ? <li className="nav-item">
-                            <Link className="nav-link" to="/add-job">Add Job</Link>
+                            <NavLink className="nav-link" to="/add-job">Add Job</NavLink>
                         </li>
                         : ''
                     }
                     {user.email
                         ? <li className="nav-item">
-                            <Link className="nav-link" to="/logout">Logout</Link>
+                            <NavLink className="nav-link" to="/logout">Logout</NavLink>
                         </li>
                         : <Fragment>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/login">Login</Link>
+                                <NavLink className="nav-link" to="/login">Login</NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/register">Register</Link>
+                                <NavLink className="nav-link" to="/register">Register</NavLink>
                             </li>
                         </Fragment>
                     }

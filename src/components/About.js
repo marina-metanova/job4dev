@@ -7,7 +7,7 @@ export const About = () => {
             <div id="breadcrumb">
                 <nav aria-label="breadcrumb" className="container">
                     <ol className="breadcrumb mb-0">
-                        <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                         <li className="breadcrumb-item active" aria-current="page">About Us</li>
                     </ol>
                 </nav>
