@@ -27,10 +27,6 @@ export const Profile = () => {
                     ? <CompanyProfile user={user} />
                     : <UserProfile user={user} />
                 }
-
-                <article className="job-main">
-
-                </article>
             </section>
         </Fragment>
     )

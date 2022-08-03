@@ -105,13 +105,6 @@ export const EditJob = () => {
 
                                 <div className="col-md-12">
                                     <div className="form-group">
-                                        <label htmlFor="logo">Company Logo</label>
-                                        <input type="text" className="form-control" id="logo" name="logo" value={values.logo} onChange={changeHandler} />
-                                    </div>
-                                </div>
-
-                                <div className="col-md-12">
-                                    <div className="form-group">
                                         <label htmlFor="description">Job description </label>
                                         <textarea className="form-control" id="description" name="description" value={values.description} rows="4" onChange={changeHandler}></textarea>
                                     </div>

@@ -21,7 +21,6 @@ export const AddJob = () => {
             category,
             city,
             salary,
-            logo,
             description,
         } = Object.fromEntries(new FormData(e.target));
 
@@ -31,7 +30,7 @@ export const AddJob = () => {
             category,
             city,
             salary,
-            logo,
+            logo: user.logo,
             description,
         })
             .then(result => {
@@ -79,13 +78,6 @@ export const AddJob = () => {
                                     <div className="form-group">
                                         <label htmlFor="salary">Salary</label>
                                         <input type="text" className="form-control" id="salary" name="salary" placeholder="e.x. 1200" />
-                                    </div>
-                                </div>
-
-                                <div className="col-md-12">
-                                    <div className="form-group">
-                                        <label htmlFor="logo">Company Logo</label>
-                                        <input type="text" className="form-control" id="logo" name="logo" placeholder="e.x. 1200" />
                                     </div>
                                 </div>
 
