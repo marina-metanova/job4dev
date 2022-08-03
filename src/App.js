@@ -28,6 +28,7 @@ import { JobDetails } from './components/JobDetails'
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
 import { MobileMenu } from './components/MobileMenu';
+import { Profile } from './components/Profile/Profile';
 
 function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
@@ -58,19 +59,16 @@ function App() {
             ...state,
             jobData
         ]);
-
-        //nav('/jobs');
     }
 
     const editJob = (jobID, jobData) => {
         setJobs(state => state.map(x => x._id === jobID ? jobData : x));
-
-        //nav('/jobs');
     }
 
     return (
         <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
             <MobileMenuContext.Provider value={{ isOpen, setIsOpen }}>
+
                 <Header />
 
                 <main>
@@ -87,6 +85,7 @@ function App() {
                             <Route path='/login' element={<Login />} />
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/register' element={<Register />} />
+                            <Route path='/profile' element={<Profile />} />
                         </Routes>
                     </JobContext.Provider>
                 </main>
@@ -94,7 +93,9 @@ function App() {
                 <Footer />
 
                 <MobileMenu />
+
             </MobileMenuContext.Provider>
+
             <ScrollToTop />
 
         </AuthContext.Provider>

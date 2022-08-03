@@ -46,16 +46,21 @@ export const Header = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/jobs">Jobs</NavLink>
                         </li>
-                        {user.company === 'on'
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/profile">Profile</NavLink>
+                        </li>
+                        {user.company
                             ? <li className="nav-item">
                                 <NavLink className="nav-link" to="/add-job">Add job</NavLink>
                             </li>
-                            : ''
+                            : <li className="nav-item">
+                                <NavLink className="nav-link" to="/companies">Companies</NavLink>
+                            </li>
                         }
                     </ul>
                     {user.email
                         ? <div className="d-flex justify-content-between">
-                            <NavLink to="/logout" className="btn btn-light-blue">Logout</NavLink>
+                            <NavLink to="/logout" className="btn btn-light-blue mx-md-3">Logout</NavLink>
                         </div>
                         : <div className="d-flex justify-content-between">
                             <NavLink to="/register" className="btn btn-blue mx-md-3">Register</NavLink>

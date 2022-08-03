@@ -39,6 +39,7 @@ export const JobDetails = () => {
                     </figure>
                     <div className="job-info">
                         <h1 className="h1 mb-2">{job.jobTitle}</h1>
+                        <h5 className="h5 mb-2">{job.company}</h5>
                         <div className="d-block d-md-flex justify-content-between">
                             <div className="jobs-info">
                                 <span><img src="/img/icons/job.svg" width="20px" alt='Job icon' /> {job.category}</span>

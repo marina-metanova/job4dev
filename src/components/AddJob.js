@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import * as jobServices from '../services/jobsService';
 
 import { JobContext } from '../contexts/JobContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 export const AddJob = () => {
     const { addJob } = useContext(JobContext);
+    const { user } = useContext(AuthContext);
+    console.log(user);
 
     const nav = useNavigate();
 
@@ -24,6 +27,7 @@ export const AddJob = () => {
 
         jobServices.createJob({
             jobTitle,
+            company: user.fullName,
             category,
             city,
             salary,

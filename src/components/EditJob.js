@@ -59,6 +59,10 @@ export const EditJob = () => {
             })
     }
 
+    const validateJobTitle = () => {
+
+    }
+    
     return (
         <Fragment>
             <section className="container">
@@ -73,7 +77,7 @@ export const EditJob = () => {
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <label htmlFor="jobTitle">Job Title</label>
-                                        <input type="text" className="form-control" id="jobTitle" name="jobTitle" value={values.jobTitle} onChange={changeHandler} />
+                                        <input type="text" className="form-control" id="jobTitle" name="jobTitle" value={values.jobTitle} onChange={changeHandler} onBlur={validateJobTitle} />
                                     </div>
                                 </div>
 

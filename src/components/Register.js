@@ -1,37 +1,47 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import * as authService from "../services/authService";
 import { AuthContext } from "../contexts/AuthContext";
 
 export const Register = () => {
-    const {userLogin} = useContext(AuthContext);
+    const { userLogin } = useContext(AuthContext);
+    const [values, setValues] = useState({
+        fullName: '',
+        email: '',
+        password: '',
+        rePass: '',
+        company: false,
+        logo: '',
+    });
     const nav = useNavigate();
+
+    const changeHandler = (e) => {
+        if (e.target.type == 'checkbox') {
+            setValues(state => ({
+                ...state,
+                [e.target.name]: e.target.checked
+            }))
+            console.log(values.company);
+        } else {
+            setValues(state => ({
+                ...state,
+                [e.target.name]: e.target.value,
+            }))
+        }
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const {
-            fullName,
-            email,
-            password,
-            rePass,
-            company,
-        } = Object.fromEntries(new FormData(e.target));
-
-        if (password !== rePass) {
+        if (values.password !== values.rePass) {
             return;
         }
-        
-        authService.register(
-            fullName,
-            email,
-            password,
-            rePass,
-            company
-        )
+
+        authService.register(values)
             .then(authData => {
                 userLogin(authData);
+                console.log(authData);
                 nav('/');
             })
             .catch(error => {
@@ -42,7 +52,6 @@ export const Register = () => {
         <section className="container">
             <div className="text-center">
                 <h1 className="h1">Register</h1>
-                <p>Create stunning, effective sales documents with custom base designed themes, templates, and embedded rich media. It’s easy to create and send professional-looking docs that canbe win every time.</p>
             </div>
 
             <form className="form-contacts" onSubmit={onSubmit}>
@@ -51,15 +60,15 @@ export const Register = () => {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="form-group">
-                                    <label htmlFor="fullName">Your Full Name</label>
-                                    <input type="text" className="form-control" id="fullName" name="fullName" placeholder="e.x. John Doe" />
+                                    <label htmlFor="fullName">Full name/Company name</label>
+                                    <input type="text" className="form-control" id="fullName" name="fullName" value={values.fullName} onChange={changeHandler} placeholder="e.x. John Doe" />
                                 </div>
                             </div>
 
                             <div className="col-md-6">
                                 <div className="form-group">
                                     <label htmlFor="email">Your Email Address</label>
-                                    <input type="email" className="form-control form-error" id="email" name="email" placeholder="e.x. jordan@gmail.com" />
+                                    <input type="email" className="form-control form-error" id="email" name="email" value={values.email} onChange={changeHandler} placeholder="e.x. jordan@gmail.com" />
                                     <small id="emailHelp" className="form-text"><img src="./public/img/icons/icon-attention.svg" alt="" /> Valid email</small>
                                 </div>
                             </div>
@@ -67,21 +76,28 @@ export const Register = () => {
                             <div className="col-md-6">
                                 <div className="form-group">
                                     <label htmlFor="telephone">Your Password</label>
-                                    <input type="password" className="form-control" id="password" name="password" placeholder="e.x. *****" />
+                                    <input type="password" className="form-control" id="password" name="password" value={values.password} onChange={changeHandler} placeholder="e.x. *****" />
                                 </div>
                             </div>
 
                             <div className="col-md-6">
                                 <div className="form-group">
                                     <label htmlFor="rePass">Re-Password</label>
-                                    <input type="password" className="form-control" id="rePass" name="rePass" placeholder="e.x. *****" />
+                                    <input type="password" className="form-control" id="rePass" name="rePass" value={values.rePass} onChange={changeHandler} placeholder="e.x. *****" />
                                 </div>
                             </div>
 
                             <div className="col-md-6">
                                 <div className="form-group">
-                                    <input type="checkbox" className="form-check-input" id="company" name="company" />
+                                    <input type="checkbox" className="form-check-input" id="company" name="company" checked={values.company} onChange={changeHandler} />
                                     <label className="form-check-label" htmlFor="company">We are company</label>
+                                </div>
+                            </div>
+
+                            <div className={values.company ? "col-md-12" : "d-none"}>
+                                <div className="form-group">
+                                    <label htmlFor="logo">Company logo</label>
+                                    <input type="text" className="form-control" id="logo" name="logo" onChange={changeHandler} placeholder="e.x. http://..." />
                                 </div>
                             </div>
 
