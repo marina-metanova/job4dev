@@ -6,6 +6,14 @@ export const getAllJobs = () => {
     return request.get(baseURL);
 }
 
+export const getJob = (jobID) => {
+    return request.get(`${baseURL}/${jobID}`);
+}
+
 export const createJob = (jobData) => {
-    return request.post(baseURL, jobData)
+    return request.post(baseURL, jobData);
+}
+
+export const editJob = (jobID, jobData) => {
+    return request.put(`${baseURL}/${jobID}`, jobData);
 }

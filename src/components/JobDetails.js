@@ -1,14 +1,33 @@
-import { Fragment } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
+import { AuthContext } from '../contexts/AuthContext';
+
+import * as jobsService from '../services/jobsService'
 
 export const JobDetails = () => {
+    const [job, setJob] = useState({});
+    const {jobID} = useParams();
+    const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+        jobsService.getJob(jobID)
+            .then(result => {
+                setJob(result);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, [])
+
     return (
         <Fragment>
             <div id="breadcrumb">
                 <nav aria-label="breadcrumb" className="container">
                     <ol className="breadcrumb mb-0">
-                        <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li className="breadcrumb-item"><a href="">Jobs</a></li>
-                        <li className="breadcrumb-item active" aria-current="page">Junior Graphic Designer (Web)</li>
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item"><Link to="/jobs">Jobs</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">{job.jobTitle}</li>
                     </ol>
                 </nav>
             </div>
@@ -16,17 +35,23 @@ export const JobDetails = () => {
             <section className="container">
                 <div className="job-header">
                     <figure className="job-company-img">
-                        <img src="./public/img/companies/mailchimp.svg" alt="" />
+                        <img src={job.logo} alt="gdsfgdf" />
                     </figure>
                     <div className="job-info">
-                        <h1 className="h1 mb-2">Junior Graphic Designer (Web)</h1>
+                        <h1 className="h1 mb-2">{job.jobTitle}</h1>
                         <div className="d-block d-md-flex justify-content-between">
                             <div className="jobs-info">
-                                <span><img src="./public/img/icons/job.svg" width="20px" /> Design</span>
-                                <span><img src="./public/img/icons/location.svg" width="20px" /> Plovdiv</span>
-                                <span><img src="./public/img/icons/money.svg" width="20px" /> 1500-2000</span>
+                                <span><img src="/img/icons/job.svg" width="20px" alt='Job icon' /> {job.category}</span>
+                                <span><img src="/img/icons/location.svg" width="20px" alt='Location icon' /> {job.city}</span>
+                                <span><img src="/img/icons/money.svg" width="20px" alt='Money icon' /> {job.salary}</span>
                             </div>
-                            <a href="" className="btn btn-blue">Apply Job</a>
+                            {user._id === job._ownerId
+                                ?   <Fragment>
+                                        <Link to={`/edit-job/${jobID}`} className="btn btn-blue">Edit Job</Link>
+                                        <Link to={`/delete-job/${jobID}`} className="btn btn-blue">Delete Job</Link>
+                                    </Fragment>
+                                : <Link to="" className="btn btn-blue">Apply Job</Link>
+                            }
                         </div>
                     </div>
                 </div>
@@ -37,7 +62,7 @@ export const JobDetails = () => {
                     </div>
 
                     <div>
-                        <p>As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.</p>
+                        <p>{job.description}</p>
                     </div>
                 </article>
             </section>

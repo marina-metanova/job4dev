@@ -1,19 +1,9 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import * as jobsServices from '../../services/jobsService';
-
 import { JobsHome } from './JobsHome';
 
-export const Home = () => {
-
-    const jobs = jobsServices.getAllJobs()
-        .then(result => {
-            return result;
-        })
-        .catch(error => {
-            console.log(error);
-        })
+export const Home = ({jobs}) => {
 
     return (
         <Fragment>
@@ -56,77 +46,12 @@ export const Home = () => {
 
                 <div className="features-main d-md-flex justify-content-between">
                     {jobs.length > 0
-                        ? jobs.map(job => <JobsHome key={job._id} job={job} />)
+                        ? jobs.slice(0, 3).map(job => <JobsHome key={job._id} job={job} />)
                         : <p className="no-jobs">No jobs yet</p>
                     }
-                    
-
-                    <div className="feature-box text-md-center col">
-                        <figure>
-                            <img src="/img/companies/atlassian-jira.svg" alt="Logo" />
-                        </figure>
-                        <div>
-                            <h4 className="h4">Finance Manager  Health</h4>
-                            <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" alt="Social share" /> Design</span>
-                                <span><img src="/img/icons/location.svg" width="20px" alt="Social share" /> Varna</span>
-                                <span><img src="/img/icons/money.svg" width="20px" alt="Social share" /> 5000-6000</span>
-                            </div>
-                            <p>As a Product Designer, you will work within a Product Delivery Team fused with.</p>
-                            <Link to="/" className="btn btn-blue">Read more</Link>
-                        </div>
-                    </div>
-                    <div className="feature-box text-md-center col">
-                        <figure>
-                            <img src="/img/companies/slack.svg" alt="" />
-                        </figure>
-                        <div>
-                            <h4 className="h4">Group Marketing Manager</h4>
-                            <div className="jobs-info">
-                                <span><img src="/img/icons/job.svg" width="20px" alt="Social share" /> Marketing</span>
-                                <span><img src="/img/icons/location.svg" width="20px" alt="Social share" /> Plovdiv</span>
-                                <span><img src="/img/icons/money.svg" width="20px" alt="Social share" /> 1500-2000</span>
-                            </div>
-                            <p>As a Product Designer, you will work within a Product Delivery Team fused with.</p>
-                            <Link to="/" className="btn btn-blue">Read more</Link>
-                        </div>
-                    </div>
                 </div>
                 <div className="btn-box text-center mb-5">
                     <Link className="btn btn-purple" to="/jobs">View all</Link>
-                </div>
-            </section>
-
-            <section className="container text-center">
-                <div>
-                    <h3>Top Company Registered</h3>
-                    <p>Some of the companies we’ve helped recruit excellent applicants over the years.</p>
-
-                    <div className="companies-main d-flex justify-content-between">
-                        <div className="company-box">
-                            <img src="../sr/img/companies/atlassian-jira.svg" alt="" />
-                        </div>
-
-                        <div className="company-box">
-                            <img src="../sr/img/companies/hubSpot.svg" alt="" />
-                        </div>
-
-                        <div className="company-box">
-                            <img src="../sr/img/companies/mailchimp.svg" alt="" />
-                        </div>
-
-                        <div className="company-box">
-                            <img src="../sr/img/companies/salesforce.svg" alt="" />
-                        </div>
-
-                        <div className="company-box">
-                            <img src="../sr/img/companies/shopify.svg" alt="" />
-                        </div>
-
-                        <div className="company-box">
-                            <img src="../sr/img/companies/slack.svg" alt="" />
-                        </div>
-                    </div>
                 </div>
             </section>
 

@@ -1,8 +1,14 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import * as jobServices from '../services/jobsService';
 
+import { JobContext } from '../contexts/JobContext';
+
 export const AddJob = () => {
+    const { addJob } = useContext(JobContext);
+
+    const nav = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +31,11 @@ export const AddJob = () => {
             description,
         })
             .then(result => {
-                console.log(result);
+                addJob(result);
+                nav('/jobs');
+            })
+            .catch(error => {
+                console.log(error);
             })
     }
     return (
