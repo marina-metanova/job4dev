@@ -1,0 +1,61 @@
+.jobs-list .job-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #F3F9FE;
+  }
+  .jobs-list .job-box a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  .jobs-list .job-box figure {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    margin-right: 15px;
+    overflow: hidden;
+  }
+  .jobs-list .job-box figure img {
+    object-fit: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .jobs-list .job-box figure span {
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    padding: 8px 14px;
+    left: 17px;
+    bottom: 21px;
+    border-radius: 12px;
+  }
+  .jobs-list .job-box .job-info {
+    max-width: calc(100% - 70px);
+    font-size: 14px;
+  }
+  .jobs-list .job-box .job-info h5.h5, .jobs-list .job-box .job-info .h5 {
+    font-size: 18px;
+    margin-top: 0;
+    line-height: 20px;
+  }
+  .jobs-list .job-box .job-info .jobs-info {
+    margin-bottom: 10px;
+  }
+  .jobs-list .job-box .job-info .jobs-info span {
+    color: #788A9B;
+    font-size: 12.8px;
+    line-height: 16px;
+    margin-bottom: 10px;
+  }
+  .jobs-list .job-box .job-info .job-descr {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

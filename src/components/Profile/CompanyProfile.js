@@ -5,6 +5,8 @@ import { Job } from "../Jobs/Job";
 
 export const CompanyProfile = ({ user }) => {
     const { jobs } = useContext(JobContext);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const createdDate = new Date(user._createdOn).toLocaleDateString([],options);
     return (
         <Fragment>
             <div className="job-header">
@@ -26,7 +28,7 @@ export const CompanyProfile = ({ user }) => {
                             <img src="/img/icons/time.svg" width="20px" style={{ marginTop: "2px" }} alt='Time icon' />
                             <div className="mx-2">
                                 <h5 className="h5">Created On:</h5>
-                                <span className="d-block">{user._createdOn}</span>
+                                <span className="d-block">{createdDate}</span>
                             </div>
                         </div>
                     </div>
@@ -34,9 +36,10 @@ export const CompanyProfile = ({ user }) => {
             </div>
 
             <article className="job-main">
+                <h2 className="h2">Your job offers</h2>
                 <div className="row jobs-list">
                     {jobs.length > 0
-                        ? jobs.map(job => job._ownerId == user._id ? <Job key={job._id} job={job} /> : "")
+                        ? jobs.map(job => job._ownerId === user._id ? <Job key={job._id} job={job} /> : "")
                         : <p className="no-jobs">No jobs yet</p>
                     }
                 </div>

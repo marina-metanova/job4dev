@@ -1,9 +1,11 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
-import * as jobsService from '../services/jobsService'
+import * as jobsService from '../../services/jobsService'
+
+import './jobDetails.css';
 
 export const JobDetails = () => {
     const [job, setJob] = useState({});

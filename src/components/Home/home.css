@@ -1,0 +1,375 @@
+#el-12 {
+    left: -16px;
+    top: -10px;
+    position: absolute;
+}
+
+.features-main .feature-box {
+    padding: 22px;
+    background-color: #EAF4FE;
+    border-radius: 19px;
+    max-width: 30%;
+}
+
+.features-main .feature-box figure {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.features-main .feature-box figure img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.features-main .feature-box .jobs-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+    .features-main .feature-box {
+        padding: 24px 16px;
+        display: flex;
+    }
+
+    .features-main .feature-box figure img {
+        margin-right: 16px;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.funfacts-main .fb-bg img {
+    position: absolute;
+    z-index: -1;
+}
+
+.funfacts-main .fb-bg img:nth-child(1) {
+    right: 0;
+    top: 250px;
+}
+
+@media (max-width: 767px) {
+    .funfacts-main .fb-bg img:nth-child(1) {
+        width: 38px;
+        top: 50px;
+    }
+}
+
+.funfacts-main .fb-bg img:nth-child(2) {
+    right: 0;
+    top: 249px;
+    width: 98px;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .fb-bg img:nth-child(2) {
+        right: 0;
+        left: 0;
+        margin: auto;
+        transform: translateX(320px);
+        top: 350px;
+    }
+}
+
+.funfacts-main .fb-bg img:nth-child(3) {
+    right: 0;
+    left: 0;
+    margin: auto;
+    transform: translateX(-157px);
+    top: 8px;
+    z-index: 2;
+    width: 35px;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .fb-bg img:nth-child(3) {
+        top: 88px;
+        transform: translateX(-369px);
+        width: auto;
+    }
+}
+
+.funfacts-main .fb-bg img:nth-child(4) {
+    left: -5px;
+    bottom: 0;
+    width: auto;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .fb-bg img:nth-child(4) {
+        display: block;
+    }
+}
+
+.funfacts-main .fb-bg img:nth-child(5) {
+    left: 0;
+    top: 38px;
+    z-index: 2;
+    width: 20px;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .fb-bg img:nth-child(5) {
+        margin: auto;
+        right: 0;
+        top: 188px;
+        transform: translateX(-433px);
+        width: auto;
+    }
+}
+
+.funfacts-main .fb-bg img:nth-child(6) {
+    left: 0;
+    top: 227px;
+    width: 55px;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .fb-bg img:nth-child(6) {
+        margin: auto;
+        right: 0;
+        transform: translateX(-378px);
+        width: auto;
+    }
+}
+
+.funfacts-main .funfacts-box {
+    box-shadow: 20px 29px 60px rgba(9, 30, 70, 0.17);
+    border-radius: 25px;
+    margin: 0 auto;
+    width: 443px;
+    max-width: calc(100% - 30px);
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .funfacts-box {
+        margin: 100px auto;
+        width: 795px;
+        border-radius: 56px;
+    }
+}
+
+.funfacts-main .funfacts-box .funfacts-header {
+    background: #135CE7;
+    border-radius: 25px 25px 0 0;
+    padding: 29px 15px 80px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .funfacts-main .funfacts-box .funfacts-header {
+        background-position: right 10px top 50px;
+        border-radius: 56px 56px 0 0;
+        padding: 76px 42px 56px;
+        overflow: visible;
+        color: #fff;
+    }
+}
+
+.funfacts-main .funfacts-box .funfacts-footer {
+    padding: 12px 24px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F3F9FE 100%);
+    border-radius: 0 0 25px 25px;
+}
+
+@media (min-width: 992px) {
+    .funfacts-main .funfacts-box .funfacts-footer {
+        padding: 32px 42px 57px;
+        border-radius: 0 0 56px 56px;
+    }
+}
+
+.funfacts-main .funfacts-box .funfacts-footer .statistics span {
+    display: block;
+    line-height: 19px;
+    margin-bottom: 1px;
+}
+
+@media (min-width: 992px) {
+    .funfacts-main .funfacts-box .funfacts-footer .statistics span {
+        line-height: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+.funfacts-main .funfacts-box .funfacts-footer .statistics strong {
+    display: block;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+@media (min-width: 992px) {
+    .funfacts-main .funfacts-box .funfacts-footer .statistics strong {
+        font-size: 39.03px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #sf-img {
+        max-width: 100%;
+    }
+}
+
+.sf-parallax {
+    position: absolute;
+    width: calc(100% - 20px);
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+@media (min-width: 992px) {
+    .sf-parallax {
+        width: 100%;
+        overflow: visible;
+    }
+}
+
+.sf-parallax img {
+    position: absolute;
+    transform: translateZ(50px);
+    z-index: -1;
+}
+
+.sf-parallax #el-1 {
+    top: 70px;
+    left: 324px;
+}
+
+@media (min-width: 992px) {
+    .sf-parallax #el-1 {
+        top: -16px;
+        left: 357px;
+    }
+}
+
+.sf-parallax #el-2 {
+    top: 150px;
+    left: 20px;
+    z-index: 2;
+}
+
+@media (min-width: 992px) {
+    .sf-parallax #el-2 {
+        top: 457px;
+        left: 397px;
+    }
+}
+
+.sf-parallax #el-3 {
+    top: 450px;
+    left: 332px;
+}
+
+@media (min-width: 992px) {
+    .sf-parallax #el-3 {
+        top: 65px;
+        left: -39px;
+    }
+}
+
+.sf-parallax #el-4 {
+    right: 77px;
+    top: 289px;
+}
+
+@media (min-width: 992px) {
+    .sf-parallax #el-4 {
+        right: -38px;
+    }
+}
+
+.sf-parallax #el-5 {
+    top: 245px;
+    left: 704px;
+}
+
+@media (max-width: 991px) {
+    .sf-parallax #el-5 {
+        display: none;
+    }
+}
+
+.sf-parallax #el-6 {
+    left: 1039px;
+    top: 307px;
+}
+
+@media (max-width: 991px) {
+    .sf-parallax #el-6 {
+        display: none;
+    }
+}
+
+.sf-parallax #el-7 {
+    top: 464px;
+    left: 740px;
+}
+
+@media (max-width: 991px) {
+    .sf-parallax #el-7 {
+        display: none;
+    }
+}
+
+.sf-parallax #el-8 {
+    top: 183px;
+    left: 554px;
+}
+
+@media (max-width: 991px) {
+    .sf-parallax #el-8 {
+        display: none;
+    }
+}
+
+.sf-parallax #el-9 {
+    right: 139px;
+    top: 83px;
+}
+
+@media (max-width: 991px) {
+    .sf-parallax #el-9 {
+        display: none;
+    }
+}
+
+.sf-parallax #el-10 {
+    top: 150px;
+    left: 210px;
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    .sf-parallax #el-10 {
+        top: 67px;
+        left: 228px;
+        z-index: 11;
+    }
+}
+
+.sf-parallax #el-11 {
+    right: 3px;
+    top: 133px;
+}
+
+@media (max-width: 991px) {
+    .sf-parallax #el-11 {
+        display: none;
+    }
+}

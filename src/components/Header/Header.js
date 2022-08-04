@@ -1,8 +1,10 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-import { AuthContext } from '../contexts/AuthContext';
-import { MobileMenuContext } from '../contexts/MobileMenuContext';
+import { AuthContext } from '../../contexts/AuthContext';
+import { MobileMenuContext } from '../../contexts/MobileMenuContext';
+
+import './header.css';
 
 export const Header = () => {
     const { user } = useContext(AuthContext);
@@ -46,16 +48,21 @@ export const Header = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/jobs">Jobs</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/profile">Profile</NavLink>
-                        </li>
+                        {user.email
+                            ? <li className="nav-item">
+                                <NavLink className="nav-link" to="/profile">Profile</NavLink>
+                            </li>
+                            : ""
+                        }
+
                         {user.company
                             ? <li className="nav-item">
                                 <NavLink className="nav-link" to="/add-job">Add job</NavLink>
                             </li>
-                            : <li className="nav-item">
-                                <NavLink className="nav-link" to="/companies">Companies</NavLink>
-                            </li>
+                            : ""
+                            // : <li className="nav-item">
+                            //     <NavLink className="nav-link" to="/companies">Companies</NavLink>
+                            // </li>
                         }
                     </ul>
                     {user.email

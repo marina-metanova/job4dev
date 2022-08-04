@@ -1,12 +1,12 @@
 import { Fragment, useContext, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import * as jobServices from '../services/jobsService';
+import * as jobServices from '../../services/jobsService';
 
-import { JobContext } from '../contexts/JobContext';
+import { JobContext } from '../../contexts/JobContext';
 
 export const EditJob = () => {
-    const [job, setJob] = useState({});
+    const [ job, setJob ] = useState({});
     const { editJob } = useContext(JobContext);
 
     const [values, setValues] = useState({

@@ -1,14 +1,17 @@
 import { Fragment, useContext, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-import { AuthContext } from '../contexts/AuthContext';
-import { MobileMenuContext } from "../contexts/MobileMenuContext";
+import { AuthContext } from '../../contexts/AuthContext';
+import { MobileMenuContext } from "../../contexts/MobileMenuContext";
+
+import './mobileMenu.css';
 
 export const MobileMenu = () => {
     const { user } = useContext(AuthContext);
     const { isOpen, setIsOpen } = useContext(MobileMenuContext);
 
     const location = useLocation();
+    
     useEffect(() => {
         if(isOpen) {
             setIsOpen(false)

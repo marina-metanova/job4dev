@@ -1,0 +1,41 @@
+#back-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: #135CE7;
+    color: white;
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+    border-radius: 100%;
+  }
+  @media (min-width: 768px) {
+    #back-top {
+      width: 80px;
+      height: 80px;
+      right: 30px;
+    }
+  }
+  #back-top:after {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    transform: rotate(135deg);
+    width: 10px;
+    height: 10px;
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+  }
+  #back-top:hover {
+    background-color: #0f49b8;
+  }

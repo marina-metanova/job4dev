@@ -1,0 +1,52 @@
+#mobile-menu {
+    position: fixed;
+    width: 100vw;
+    top: 81px;
+    left: -100vw;
+    background-color: #F3F9FE;
+    height: calc(100vh - 90px);
+    padding: 23px 16px 20px;
+    z-index: 90;
+    transition: ease-in-out 0.3s left;
+  }
+  #mobile-menu.open {
+    left: 0;
+  }
+  #mobile-menu .navbar {
+    display: block;
+    height: calc(100% - 67px);
+  }
+  #mobile-menu .navbar strong {
+    display: block;
+    text-transform: uppercase;
+    line-height: 32px;
+    color: #D6DEEE;
+  }
+  #mobile-menu .navbar .nav {
+    margin-bottom: 24px;
+    border-radius: 32px;
+    background-color: white;
+    padding: 24px 0;
+  }
+  #mobile-menu .navbar .nav .nav-link {
+    color: #37384A;
+    line-height: 1.2;
+    padding: 17px 50px 17px 24px;
+    position: relative;
+  }
+  #mobile-menu .navbar .nav .nav-link.active {
+    font-weight: bold !important;
+  }
+  #mobile-menu .navbar .nav .nav-link:after {
+    position: absolute;
+    right: 29px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: rotate(-45deg);
+    border-right: 1px solid #0F1027;
+    border-bottom: 1px solid #0F1027;
+  }
+  #mobile-menu .menu-footer {
+    padding-top: 15px;
+  }

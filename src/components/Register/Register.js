@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import * as authService from "../services/authService";
-import { AuthContext } from "../contexts/AuthContext";
+import * as authService from "../../services/authService";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const Register = () => {
     const { userLogin } = useContext(AuthContext);
@@ -17,12 +17,11 @@ export const Register = () => {
     const nav = useNavigate();
 
     const changeHandler = (e) => {
-        if (e.target.type == 'checkbox') {
+        if (e.target.type === 'checkbox') {
             setValues(state => ({
                 ...state,
                 [e.target.name]: e.target.checked
             }))
-            console.log(values.company);
         } else {
             setValues(state => ({
                 ...state,

@@ -1,0 +1,13 @@
+.footer {
+    padding: 42px;
+  }
+  .footer .social-nav {
+    margin: 17px 0;
+  }
+  .footer .social-nav .nav-link {
+    padding-left: 0;
+  }
+  .footer .nav .nav-link {
+    padding-left: 0;
+    color: #37384A;
+  }

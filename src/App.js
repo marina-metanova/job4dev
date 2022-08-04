@@ -10,25 +10,25 @@ import { JobContext } from './contexts/JobContext';
 import * as jobsServices from './services/jobsService';
 
 // Components
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 import { Home } from './components/Home/Home';
-import { About } from './components/About';
-import { Login } from './components/Login';
-import { Logout } from './components/Logout';
-import { Register } from './components/Register';
+import { About } from './components/About/About';
+import { Login } from './components/Login/Login';
+import { Logout } from './components/Logout/Logout';
+import { Register } from './components/Register/Register';
 import { Jobs } from './components/Jobs/Jobs';
-import { AddJob } from './components/AddJob';
-import { EditJob } from './components/EditJob';
-import { DeleteJob } from './components/DeleteJob';
-import { ErrorPage } from './components/ErrorPage';
-import { JobDetails } from './components/JobDetails'
+import { AddJob } from './components/AddJob/AddJob';
+import { EditJob } from './components/EditJob/EditJob';
+import { DeleteJob } from './components/DeleteJob/DeleteJob';
+import { ErrorPage } from './components/ErrorPage/ErrorPage';
+import { JobDetails } from './components/JobDetails/JobDetails'
+import { Profile } from './components/Profile/Profile';
+import { MobileMenu } from './components/MobileMenu/MobileMenu';
+import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
 
 // Custom hooks
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
-import { MobileMenu } from './components/MobileMenu';
-import { Profile } from './components/Profile/Profile';
 
 function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
@@ -68,9 +68,7 @@ function App() {
     return (
         <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
             <MobileMenuContext.Provider value={{ isOpen, setIsOpen }}>
-
                 <Header />
-
                 <main>
                     <JobContext.Provider value={{ jobs, addJob, editJob }}>
                         <Routes>
@@ -90,15 +88,10 @@ function App() {
                         </Routes>
                     </JobContext.Provider>
                 </main>
-
                 <Footer />
-
                 <MobileMenu />
-
             </MobileMenuContext.Provider>
-
             <ScrollToTop />
-
         </AuthContext.Provider>
     );
 }

@@ -1,0 +1,25 @@
+.job-header {
+    display: flex;
+    background-color: #EAF4FE;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  .job-header .job-company-img {
+    width: 100px;
+    margin: 0 30px 0 0 !important;
+  }
+  .job-header .job-company-img img {
+    display: block;
+    width: 100px;
+  }
+  .job-header .jobs-info {
+    font-size: 12px;
+  }
+  .job-header .jobs-info span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .job-header .job-info {
+    flex: 1;
+  }

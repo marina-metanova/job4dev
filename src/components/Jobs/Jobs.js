@@ -5,6 +5,8 @@ import { Job } from './Job';
 
 import { JobContext } from '../../contexts/JobContext';
 
+import './jobs.css';
+
 export const Jobs = () => {
     const { category } = useParams();
     const { jobs } = useContext(JobContext);

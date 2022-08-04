@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { JobsHome } from './JobsHome';
 
+import './home.css';
+
 export const Home = ({jobs}) => {
 
     return (
@@ -65,7 +67,7 @@ export const Home = ({jobs}) => {
                     <img src="/img/home/element-3.png" alt="" />
                 </div>
                 <div className="funfacts-box">
-                    <div className="funfacts-header text-white">
+                    <div className="funfacts-header">
                         <div>
                             <h3 className="h3"><span className="d-block">We have</span>
                                 some awesome funfacts</h3>
