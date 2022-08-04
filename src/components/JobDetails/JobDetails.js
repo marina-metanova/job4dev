@@ -1,9 +1,9 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { AuthContext } from '../../contexts/AuthContext';
+import * as jobServices from '../../services/jobsService';
 
-import * as jobsService from '../../services/jobsService'
+import { AuthContext } from '../../contexts/AuthContext';
 
 import './jobDetails.css';
 
@@ -13,14 +13,32 @@ export const JobDetails = () => {
     const {user} = useContext(AuthContext);
 
     useEffect(() => {
-        jobsService.getJob(jobID)
+        jobServices.getJob(jobID)
             .then(result => {
                 setJob(result);
             })
             .catch(error => {
                 console.log(error);
             })
-    }, [])
+    }, []);
+
+    const apllyHandler = () => {
+        // const apllies = JSON.parse(job.apllies);
+        // apllies.push(user._id)
+        
+        // const jobData = {
+        //     ...job,
+        //     apllies
+        // }
+        // jobServices.apllyForJob(jobID, jobData)
+        //     .then(result => {
+        //         console.log(result);
+        //         editJob(jobID, result);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+    }
 
     return (
         <Fragment>
@@ -56,7 +74,7 @@ export const JobDetails = () => {
                                 : ""
                             }
                             {user._id && user._id !== job._ownerId
-                                ? <Link to="" className="btn btn-blue">Apply Job</Link>
+                                ? <span className="btn btn-blue" onClick={apllyHandler}>Apply Job</span>
                                 : ""
                             }
                         </div>

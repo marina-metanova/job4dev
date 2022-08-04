@@ -17,3 +17,7 @@ export const createJob = (jobData) => {
 export const editJob = (jobID, jobData) => {
     return request.put(`${baseURL}/${jobID}`, jobData);
 }
+
+export const apllyForJob = (jobID, jobData) => {
+    return request.put(`${baseURL}/${jobID}`, jobData);
+}
