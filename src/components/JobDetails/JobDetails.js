@@ -1,44 +1,61 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+// Services
 import * as jobServices from '../../services/jobsService';
+import * as userAppliesService from '../../services/userAppliesService';
 
+// Contexts
 import { AuthContext } from '../../contexts/AuthContext';
 
 import './jobDetails.css';
 
 export const JobDetails = () => {
     const [job, setJob] = useState({});
-    const {jobID} = useParams();
-    const {user} = useContext(AuthContext);
+    const [applies, setApplies] = useState([]);
+    const { jobID } = useParams();
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        jobServices.getJob(jobID)
+        userAppliesService.getAllApplies()
             .then(result => {
-                setJob(result);
+                setApplies(result);
             })
             .catch(error => {
                 console.log(error);
             })
     }, []);
 
-    const apllyHandler = () => {
-        const apllies = JSON.parse(job.apllies);
-        apllies.push(user._id)
-        console.log(job);
-        
-        // const jobData = {
-        //     ...job,
-        //     apllies
-        // }
-        // jobServices.apllyForJob(jobID, jobData)
-        //     .then(result => {
-        //         console.log(result);
-        //         editJob(jobID, result);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
+    useEffect(() => {
+        jobServices.getJob(jobID)
+            .then(result => {
+                console.log(result);
+                setJob(result);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
+    
+    const isAppliyed = applies.some(x => x.jobID === jobID && x._ownerId == user._id);
+
+    const applyHandler = (e) => {
+        e.preventDefault();
+        userAppliesService.createJobApply(
+            jobID,
+            job.jobTitle, 
+            { fullName: user.fullName, email: user.email }
+        )
+            .then(result => {
+                setApplies(state => [
+                    ...state,
+                    result
+                ])
+            })
+            .catch(error => {
+                console.log(error);
+            })
+   
     }
 
     return (
@@ -67,16 +84,17 @@ export const JobDetails = () => {
                                 <span><img src="/img/icons/location.svg" width="20px" alt='Location icon' /> <Link to={`/${(job.city)}`}>{job.city}</Link></span>
                                 <span><img src="/img/icons/money.svg" width="20px" alt='Money icon' /> {job.salary}</span>
                             </div>
-                            {user._id === job._ownerId
-                                ?   <Fragment>
-                                        <Link to={`/edit-job/${jobID}`} className="btn btn-blue">Edit Job</Link>
-                                        <Link to={`/delete-job/${jobID}`} className="btn btn-blue">Delete Job</Link>
-                                    </Fragment>
-                                : ""
+                            {user._id === job._ownerId &&
+                                <Fragment>
+                                    <Link to={`/edit-job/${jobID}`} className="btn btn-blue">Edit Job</Link>
+                                    <Link to={`/delete-job/${jobID}`} className="btn btn-blue">Delete Job</Link>
+                                </Fragment>
                             }
-                            {user._id && user._id !== job._ownerId
-                                ? <span className="btn btn-blue" onClick={apllyHandler}>Apply Job</span>
-                                : ""
+                            {!isAppliyed && user._id && user._id !== job._ownerId &&
+                                <button className="btn btn-blue" onClick={applyHandler}>Apply Job</button>
+                            }
+                            {isAppliyed && user._id && user._id !== job._ownerId &&
+                                <button className="btn btn-blue" disabled>Applyed</button>
                             }
                         </div>
                     </div>

@@ -32,7 +32,7 @@ export const AddJob = () => {
         e.preventDefault();
 
 
-        jobServices.createJob({ ...values, logo: user.logo, apllies: [] })
+        jobServices.createJob({ ...values, logo: user.logo })
             .then(result => {
                 addJob(result);
                 nav('/jobs');

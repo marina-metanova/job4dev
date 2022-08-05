@@ -1,8 +1,30 @@
-import { Fragment } from "react"
+import { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+// Services
+import * as userAppliesService from '../../services/userAppliesService';
+
+// Components
+import { Job } from "../Jobs/Job";
 
 export const UserProfile = ({ user }) => {
+    const [applies, setApplies] = useState([]);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const createdDate = new Date(user._createdOn).toLocaleDateString([],options);
+
+    useEffect(() => {
+        userAppliesService.getAllApplies()
+            .then(result => {
+                setApplies(result);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
+
+    const userAplies = applies.map(x => x._ownerId == user._id && x);
+    console.log(userAplies);
+
     return (
         <Fragment>
             <div className="job-header">
@@ -27,12 +49,12 @@ export const UserProfile = ({ user }) => {
             </div>
 
             <article className="job-main">
-                <h2 className="h2">Jobs you apllyed for</h2>
+                <h2 className="h2">Jobs you applyed for</h2>
                 <div className="row jobs-list">
-                    {/* {jobs.length > 0
-                        ? jobs.map(job => job._ownerId === user._id ? <Job key={job._id} job={job} /> : "")
-                        : <p className="no-jobs">No jobs yet</p>
-                    } */}
+                    {applies?.length > 0
+                        ? applies.map(apply => apply._ownerId == user._id && <Link key={apply._id} to={`/jobs/${apply.jobID}`}>{apply.jobTitle}</Link>)
+                        : <p className="no-jobs">No job applies yet! </p>
+                    }
                 </div>
             </article>
         </Fragment>

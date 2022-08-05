@@ -42,7 +42,7 @@ function App() {
                             <Route path='/edit-job/:jobID' element={<EditJob />} />
                             <Route path='/delete-job/:jobID' element={<DeleteJob />} />
                             <Route path='/jobs/:jobID' element={<JobDetails />} />
-                            <Route path='/404' element={<ErrorPage />} />
+                            <Route path='/errorPage' element={<ErrorPage />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/login' element={<Login />} />
                             <Route path='/logout' element={<Logout />} />

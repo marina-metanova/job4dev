@@ -23,3 +23,6 @@
   .job-header .job-info {
     flex: 1;
   }
+  .job-main {
+    word-break: break-all;
+  }
