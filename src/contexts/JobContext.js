@@ -30,7 +30,7 @@ export const JobProvider = ({children}) => {
     }
 
     const deleteJob = (jobID) => {
-        setJobs(state => state.map(x => x._id !== jobID ? x : ''));
+        setJobs(state => state.filter(x => x._id !== jobID));
     }
 
     return (
