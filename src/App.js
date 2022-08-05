@@ -18,7 +18,6 @@ import { Register } from './components/Register/Register';
 import { Jobs } from './components/Jobs/Jobs';
 import { AddJob } from './components/AddJob/AddJob';
 import { EditJob } from './components/EditJob/EditJob';
-import { DeleteJob } from './components/DeleteJob/DeleteJob';
 import { ErrorPage } from './components/ErrorPage/ErrorPage';
 import { JobDetails } from './components/JobDetails/JobDetails'
 import { Profile } from './components/Profile/Profile';
@@ -40,7 +39,6 @@ function App() {
                             <Route path='/:category' element={<Jobs />} />
                             <Route path='/add-job' element={<AddJob />} />
                             <Route path='/edit-job/:jobID' element={<EditJob />} />
-                            <Route path='/delete-job/:jobID' element={<DeleteJob />} />
                             <Route path='/jobs/:jobID' element={<JobDetails />} />
                             <Route path='/errorPage' element={<ErrorPage />} />
                             <Route path='/about' element={<About />} />

@@ -29,8 +29,12 @@ export const JobProvider = ({children}) => {
         setJobs(state => state.map(x => x._id === jobID ? jobData : x));
     }
 
+    const deleteJob = (jobID) => {
+        setJobs(state => state.map(x => x._id !== jobID ? x : ''));
+    }
+
     return (
-        <JobContext.Provider value={{ jobs, addJob, editJob }}>
+        <JobContext.Provider value={{ jobs, addJob, editJob, deleteJob }}>
             {children}
         </JobContext.Provider>
     )

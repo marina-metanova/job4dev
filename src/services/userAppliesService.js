@@ -9,3 +9,10 @@ export const createJobApply = (jobID, jobTitle, userData) => {
 export const getAllApplies = () => {
     return request.get(baseURL);
 }
+
+export const getByJobID = (jobID) => {
+    const relations = encodeURIComponent(`userApplies=_id:users`);
+    const search = encodeURIComponent(`jobID=${jobID}`)
+
+    return request.get(`${baseURL}?where=${search}&load=${relations}`);
+}

@@ -1,8 +1,10 @@
 import { useContext, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
+// Services
 import * as jobServices from '../../services/jobsService';
 
+// Contexts
 import { JobContext } from '../../contexts/JobContext';
 
 export const EditJob = () => {

@@ -1,5 +1,5 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 // Services
 import * as jobServices from '../../services/jobsService';
@@ -7,14 +7,17 @@ import * as userAppliesService from '../../services/userAppliesService';
 
 // Contexts
 import { AuthContext } from '../../contexts/AuthContext';
+import { JobContext } from '../../contexts/JobContext';
 
 import './jobDetails.css';
 
 export const JobDetails = () => {
-    const [job, setJob] = useState({});
-    const [applies, setApplies] = useState([]);
+    const [ job, setJob ] = useState({});
+    const { deleteJob } = useContext(JobContext);
+    const [ applies, setApplies ] = useState([]);
     const { jobID } = useParams();
     const { user } = useContext(AuthContext);
+    const nav = useNavigate();
 
     useEffect(() => {
         userAppliesService.getAllApplies()
@@ -29,7 +32,6 @@ export const JobDetails = () => {
     useEffect(() => {
         jobServices.getJob(jobID)
             .then(result => {
-                console.log(result);
                 setJob(result);
             })
             .catch(error => {
@@ -56,6 +58,18 @@ export const JobDetails = () => {
                 console.log(error);
             })
    
+    }
+
+    const deleteJobHandler = (e) => {
+        const confirmation = window.confirm('Are you shure you want to delete this Job offer?');
+
+        if(confirmation) {
+            jobServices.deleteJob(jobID)
+            .then(() => {
+                deleteJob(jobID);
+                nav('/jobs')
+            })
+        }
     }
 
     return (
@@ -87,7 +101,7 @@ export const JobDetails = () => {
                             {user._id === job._ownerId &&
                                 <Fragment>
                                     <Link to={`/edit-job/${jobID}`} className="btn btn-blue">Edit Job</Link>
-                                    <Link to={`/delete-job/${jobID}`} className="btn btn-blue">Delete Job</Link>
+                                    <button className="btn btn-blue" onClick={deleteJobHandler}>Delete Job</button>
                                 </Fragment>
                             }
                             {!isAppliyed && user._id && user._id !== job._ownerId &&
