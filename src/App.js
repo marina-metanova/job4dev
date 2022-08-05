@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 // Contexts
-import { AuthContext } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 import { MobileMenuContext } from './contexts/MobileMenuContext';
-import { JobContext } from './contexts/JobContext';
+import { JobProvider } from './contexts/JobContext';
 
-// Services
-import * as jobsServices from './services/jobsService';
 
 // Components
 import { Header } from './components/Header/Header';
@@ -27,52 +25,17 @@ import { Profile } from './components/Profile/Profile';
 import { MobileMenu } from './components/MobileMenu/MobileMenu';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
 
-// Custom hooks
-import { useLocalStorage } from './hooks/useLocalStorage';
-
 function App() {
-    const [auth, setAuth] = useLocalStorage('auth', {});
-    const [jobs, setJobs] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-    const nav = useNavigate();
-
-    useEffect(() => {
-        jobsServices.getAllJobs()
-            .then(result => {
-                setJobs(result);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, []);
-
-    const userLogin = (authData) => {
-        setAuth(authData);
-    }
-
-    const userLogout = () => {
-        setAuth({});
-    }
-
-    const addJob = (jobData) => {
-        setJobs(state => [
-            ...state,
-            jobData
-        ]);
-    }
-
-    const editJob = (jobID, jobData) => {
-        setJobs(state => state.map(x => x._id === jobID ? jobData : x));
-    }
 
     return (
-        <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
+        <AuthProvider>
             <MobileMenuContext.Provider value={{ isOpen, setIsOpen }}>
                 <Header />
                 <main>
-                    <JobContext.Provider value={{ jobs, addJob, editJob }}>
+                    <JobProvider>
                         <Routes>
-                            <Route path='/' element={<Home jobs={jobs} />} />
+                            <Route path='/' element={<Home />} />
                             <Route path='/jobs' element={<Jobs />} />
                             <Route path='/:category' element={<Jobs />} />
                             <Route path='/add-job' element={<AddJob />} />
@@ -86,13 +49,13 @@ function App() {
                             <Route path='/register' element={<Register />} />
                             <Route path='/profile' element={<Profile />} />
                         </Routes>
-                    </JobContext.Provider>
+                    </JobProvider>
                 </main>
                 <Footer />
                 <MobileMenu />
             </MobileMenuContext.Provider>
             <ScrollToTop />
-        </AuthContext.Provider>
+        </AuthProvider>
     );
 }
 

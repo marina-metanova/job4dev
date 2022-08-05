@@ -40,7 +40,6 @@ export const Register = () => {
         authService.register(values)
             .then(authData => {
                 userLogin(authData);
-                console.log(authData);
                 nav('/');
             })
             .catch(error => {

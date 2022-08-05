@@ -9334,6 +9334,18 @@ section {
     z-index: 9;
 }
 
+.form-contacts .form-group label.form-check-label {
+    position: relative;
+    top: -2px;
+    left: 2px;
+    font-size: 12px;
+}
+.form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 0);
+}
+
 .form-contacts .form-group .form-control {
     padding: 16px 10px 16px 16px;
     border: 1px solid #37384A;

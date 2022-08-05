@@ -1,11 +1,15 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+// Context
+import { JobContext } from '../../contexts/JobContext';
 
 import { JobsHome } from './JobsHome';
 
 import './home.css';
 
-export const Home = ({jobs}) => {
+export const Home = () => {
+    const { jobs } = useContext(JobContext);
 
     return (
         <Fragment>

@@ -23,8 +23,9 @@ export const JobDetails = () => {
     }, []);
 
     const apllyHandler = () => {
-        // const apllies = JSON.parse(job.apllies);
-        // apllies.push(user._id)
+        const apllies = JSON.parse(job.apllies);
+        apllies.push(user._id)
+        console.log(job);
         
         // const jobData = {
         //     ...job,

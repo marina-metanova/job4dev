@@ -10,7 +10,7 @@ export const Logout = () => {
 
     useEffect(() => {
         authService.logout(user.accessToken)
-            .then(() => {
+            .then(res => {
                 userLogout();
                 nav('/');
             })
