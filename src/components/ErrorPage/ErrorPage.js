@@ -1,16 +1,13 @@
-import { Fragment } from 'react';
 import { Link } from "react-router-dom";
+
+import './errorPage.css';
 
 export const ErrorPage = () => {
     return (
-        <Fragment>
-
-            <section className="position-relative">
-               <h1 className="h1">404</h1>
-               <p>Page not found!</p>
-               <Link to="/">Home Page</Link>
-            </section>
-
-        </Fragment>
+        <section className="text-center">
+            <h1 className="h1-error">404</h1>
+            <p>Page not found!</p>
+            <Link to="/">Home Page</Link>
+        </section>
     )
 }

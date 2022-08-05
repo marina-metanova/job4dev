@@ -32,14 +32,18 @@ export const JobDetails = () => {
     useEffect(() => {
         jobServices.getJob(jobID)
             .then(result => {
-                setJob(result);
+                if(!result.message){
+                    setJob(result);
+                } else {
+                    nav('/errorPage');
+                }
             })
             .catch(error => {
                 console.log(error);
             })
     }, []);
     
-    const isAppliyed = applies.some(x => x.jobID === jobID && x._ownerId == user._id);
+    const isAppliyed = applies.some(x => x.jobID === jobID && x._ownerId === user._id);
 
     const applyHandler = (e) => {
         e.preventDefault();

@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 // Services
 import * as userAppliesService from '../../services/userAppliesService';
 
-// Components
-import { Job } from "../Jobs/Job";
-
 export const UserProfile = ({ user }) => {
     const [applies, setApplies] = useState([]);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -21,9 +18,6 @@ export const UserProfile = ({ user }) => {
                 console.log(error);
             })
     }, []);
-
-    const userAplies = applies.map(x => x._ownerId == user._id && x);
-    console.log(userAplies);
 
     return (
         <Fragment>
@@ -52,7 +46,7 @@ export const UserProfile = ({ user }) => {
                 <h2 className="h2">Jobs you applyed for</h2>
                 <div className="row jobs-list">
                     {applies?.length > 0
-                        ? applies.map(apply => apply._ownerId == user._id && <Link key={apply._id} to={`/jobs/${apply.jobID}`}>{apply.jobTitle}</Link>)
+                        ? applies.map(apply => apply._ownerId === user._id && <Link key={apply._id} to={`/jobs/${apply.jobID}`}>{apply.jobTitle}</Link>)
                         : <p className="no-jobs">No job applies yet! </p>
                     }
                 </div>

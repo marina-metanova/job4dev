@@ -40,12 +40,12 @@ function App() {
                             <Route path='/add-job' element={<AddJob />} />
                             <Route path='/edit-job/:jobID' element={<EditJob />} />
                             <Route path='/jobs/:jobID' element={<JobDetails />} />
-                            <Route path='/errorPage' element={<ErrorPage />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/login' element={<Login />} />
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/profile' element={<Profile />} />
+                            <Route path='/errorPage' element={<ErrorPage />} />
                         </Routes>
                     </JobProvider>
                 </main>

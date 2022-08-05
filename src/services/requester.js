@@ -29,7 +29,8 @@ export const request = async (method, url, data ) => {
 
         return result;
     } catch (error) {
-        return error;
+        
+        throw new Error(error);
     }
 }
 

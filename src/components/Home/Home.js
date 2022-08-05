@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 // Context
@@ -11,21 +11,34 @@ import './home.css';
 export const Home = () => {
     const { jobs } = useContext(JobContext);
 
+    const parallax = () => {
+        console.log("e");
+        // if (window.pageYOffset >= 992) {
+        //     const position = e.target.getAttribute("data-value");
+        //     console.log(position);
+
+        //     const x = (window.innerWidth - e.pageX * position) / 40;
+        //     const y = (window.innerHeight - e.pageY * position) / 25;
+
+        //     e.target.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        // }
+    }
+
     return (
         <Fragment>
             <section className="container position-relative">
                 <div className="sf-parallax">
-                    <img src="/img/parallax/sf-1.svg" alt="parallax img" id="el-1" data-value="-3" />
-                    <img src="/img/parallax/sf-2.svg" alt="parallax img" id="el-2" data-value="5" />
-                    <img src="/img/parallax/sf-3.svg" alt="parallax img" id="el-3" data-value="1" />
-                    <img src="/img/parallax/sf-4.svg" alt="parallax img" id="el-4" data-value="-1" />
-                    <img src="/img/parallax/sf-5.svg" alt="parallax img" id="el-5" data-value="4" />
-                    <img src="/img/parallax/sf-6.svg" alt="parallax img" id="el-6" data-value="2" />
-                    <img src="/img/parallax/sf-7.svg" alt="parallax img" id="el-7" data-value="-5" />
-                    <img src="/img/parallax/sf-8.svg" alt="parallax img" id="el-8" data-value="13" />
-                    <img src="/img/parallax/sf-9.svg" alt="parallax img" id="el-9" data-value="3" />
-                    <img src="/img/parallax/sf-10.svg" alt="parallax img" id="el-10" data-value="4" />
-                    <img src="/img/parallax/sf-11.svg" alt="parallax img" id="el-11" data-value="7" />
+                    <img src="/img/parallax/sf-1.svg" alt="parallax img" id="el-1" data-value="-3" onMouseUp={parallax} />
+                    <img src="/img/parallax/sf-2.svg" alt="parallax img" id="el-2" data-value="5" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-3.svg" alt="parallax img" id="el-3" data-value="1" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-4.svg" alt="parallax img" id="el-4" data-value="-1" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-5.svg" alt="parallax img" id="el-5" data-value="4" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-6.svg" alt="parallax img" id="el-6" data-value="2" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-7.svg" alt="parallax img" id="el-7" data-value="-5" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-8.svg" alt="parallax img" id="el-8" data-value="13" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-9.svg" alt="parallax img" id="el-9" data-value="3" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-10.svg" alt="parallax img" id="el-10" data-value="4" onMouseMove={parallax} />
+                    <img src="/img/parallax/sf-11.svg" alt="parallax img" id="el-11" data-value="7" onMouseMove={parallax} />
                 </div>
                 <div className="row align-items-center">
                     <div className="col-lg-4 col-md-5">
