@@ -2,9 +2,44 @@
 
 This Single Page Application is created as a platform for job offers and positions. Guests, users and companies can make a different type of actions like view, login, register, create, delete and so on depending on user role. 
 
+## Built With
+
+* ReactJS
+* SoftUni Practice Server
+* HTML + CSS/SASS by Me (design by Alex Moroz)
+* Responsive design
+
 # Client side
 ## Roles and permissions
 ### Public part
+
+For non-registered users. These users have access to:
+
+* **Home page**
+* **About Us**
+* **Jobs**
+* **Job Details Page**
+* **Login**
+* **Register**
+
+### Private part
+
+For regisred companies:
+
+* **Home page**
+* **About Us**
+* **Profile** 
+* **Jobs**
+* **Job Details Page**
+* **Create Job**
+* **Edit Job**
+* **Delete Job**
+
+For registred users:
+
+* **Profile**
+* **Job Details Page with Apply option** 
+
 
 ## About project development
 
