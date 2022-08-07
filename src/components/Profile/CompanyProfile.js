@@ -7,6 +7,8 @@ export const CompanyProfile = ({ user }) => {
     const { jobs } = useContext(JobContext);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const createdDate = new Date(user._createdOn).toLocaleDateString([],options);
+    const ownerJobs = jobs.filter(job => job._ownerId === user._id && job);
+    
     return (
         <Fragment>
             <div className="job-header">
@@ -34,6 +36,16 @@ export const CompanyProfile = ({ user }) => {
                     </div>
                 </div>
             </div>
+
+            <article className="job-main">
+                <h2 className="h2">Your job offers</h2>
+                <div className="row jobs-list">
+                    {ownerJobs.length > 0
+                        ? ownerJobs.map(job => <Job key={job._id} job={job} />)
+                        : <p className="no-jobs">No jobs yet</p>
+                    }
+                </div>
+            </article>
         </Fragment>
     )
 }

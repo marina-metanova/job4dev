@@ -20,8 +20,8 @@ export const JobProvider = ({children}) => {
 
     const addJob = (jobData) => {
         setJobs(state => [
+            jobData,
             ...state,
-            jobData
         ]);
     }
 

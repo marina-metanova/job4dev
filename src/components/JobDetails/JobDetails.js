@@ -108,7 +108,7 @@ export const JobDetails = () => {
                                     <button className="btn btn-blue" onClick={deleteJobHandler}>Delete Job</button>
                                 </Fragment>
                             }
-                            {!isAppliyed && user._id && user._id !== job._ownerId &&
+                            {!isAppliyed && user._id && user._id !== job._ownerId && !user.company &&
                                 <button className="btn btn-blue" onClick={applyHandler}>Apply Job</button>
                             }
                             {isAppliyed && user._id && user._id !== job._ownerId &&

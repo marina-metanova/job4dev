@@ -3,7 +3,7 @@ import * as request from "./requester";
 const baseURL = 'http://localhost:3030/data/jobs';
 
 export const getAllJobs = () => {
-    return request.get(`${baseURL}`);
+    return request.get(`${baseURL}?sortBy=_createdOn%20desc&distinct=category`);
 }
 
 export const getJob = (jobID) => {
