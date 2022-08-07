@@ -2,6 +2,8 @@
 
 This Single Page Application is created as a platform for job offers and positions. Guests, users and companies can make a different type of actions like view, login, register, create, delete and so on depending on user role. 
 
+![picture alt](https://www.studiocooking.com/wp-content/uploads/2022/08/screenshot.png "Job 4 DEV Home page")
+
 ## Built With
 
 * ReactJS
@@ -39,6 +41,9 @@ For registred users:
 
 * **Profile**
 * **Job Details Page with Apply option** 
+
+## Home page
+
 
 
 ## About project development

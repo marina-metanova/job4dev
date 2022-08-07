@@ -1,6 +1,5 @@
 import { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 
 // Context
 import { JobContext } from '../../contexts/JobContext';
@@ -15,41 +14,6 @@ export const Home = () => {
     return (
         <Fragment>
             <section className="container position-relative">
-                <MouseParallaxContainer className='sf-parallax'>
-                    <MouseParallaxChild factorX={0.03} factorY={0.05} >
-                        <img src="/img/parallax/sf-1.svg" alt="parallax img" id="el-1" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-2.svg" alt="parallax img" id="el-2" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-3.svg" alt="parallax img" id="el-3" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-4.svg" alt="parallax img" id="el-4" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-5.svg" alt="parallax img" id="el-5" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-6.svg" alt="parallax img" id="el-6" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-7.svg" alt="parallax img" id="el-7" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-8.svg" alt="parallax img" id="el-8" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-9.svg" alt="parallax img" id="el-9" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-10.svg" alt="parallax img" id="el-10" />
-                    </MouseParallaxChild>
-                    <MouseParallaxChild factorX={0.07} factorY={0.08}>
-                        <img src="/img/parallax/sf-11.svg" alt="parallax img" id="el-11" />
-                    </MouseParallaxChild>
-                </MouseParallaxContainer>
 
                 <div className="row align-items-center">
                     <div className="col-lg-4 col-md-5">
