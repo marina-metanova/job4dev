@@ -10,11 +10,12 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { JobContext } from '../../contexts/JobContext';
 
 import './jobDetails.css';
+import { UserProfileApply } from './UserProfileApply';
 
 export const JobDetails = () => {
-    const [ job, setJob ] = useState({});
+    const [job, setJob] = useState({});
     const { deleteJob } = useContext(JobContext);
-    const [ applies, setApplies ] = useState([]);
+    const [applies, setApplies] = useState([]);
     const { jobID } = useParams();
     const { user } = useContext(AuthContext);
     const nav = useNavigate();
@@ -32,7 +33,7 @@ export const JobDetails = () => {
     useEffect(() => {
         jobServices.getJob(jobID)
             .then(result => {
-                if(!result.message){
+                if (!result.message) {
                     setJob(result);
                 } else {
                     nav('/errorPage');
@@ -42,37 +43,39 @@ export const JobDetails = () => {
                 console.log(error);
             })
     }, []);
-    
+
     const isAppliyed = applies.some(x => x.jobID === jobID && x._ownerId === user._id);
+    const appliedUser = applies.filter(x => x.jobID === jobID && x);
+    console.log(appliedUser);
 
     const applyHandler = (e) => {
         e.preventDefault();
         userAppliesService.createJobApply(
             jobID,
-            job.jobTitle, 
+            job.jobTitle,
             { fullName: user.fullName, email: user.email }
         )
             .then(result => {
                 setApplies(state => [
+                    result,
                     ...state,
-                    result
                 ])
             })
             .catch(error => {
-                console.log(error);
+                nav('/errorPage');
             })
-   
+
     }
 
     const deleteJobHandler = (e) => {
         const confirmation = window.confirm('Are you shure you want to delete this Job offer?');
 
-        if(confirmation) {
+        if (confirmation) {
             jobServices.deleteJob(jobID)
-            .then(() => {
-                deleteJob(jobID);
-                nav('/jobs')
-            })
+                .then(() => {
+                    deleteJob(jobID);
+                    nav('/jobs')
+                })
         }
     }
 
@@ -127,6 +130,18 @@ export const JobDetails = () => {
                         <p>{job.description}</p>
                     </div>
                 </article>
+
+                {user.company &&
+                    <section>
+                        <h3 className="h3 mb-5">All job applies: {appliedUser.length}</h3>
+                        <div className="row jobs-list">
+                            {appliedUser.length > 0
+                                ? appliedUser.map(job => <UserProfileApply key={job._id} createdOn={job._createdOn} user={job.user} />)
+                                : <p className="no-jobs">No jobs yet</p>
+                            }
+                        </div>
+                    </section>
+                }
             </section>
         </Fragment>
     )

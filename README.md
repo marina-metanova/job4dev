@@ -32,7 +32,7 @@ For regisred companies:
 * **About Us** - Static page with information about this web site and aout company.
 * **Jobs** - Catalog page with listed all job offers sorting by created date.
 * **Profile**  - Registred company can see details about them. After this main profile information they can see list of oll job offers added by them.
-* **Job Details Page** - Job details like: Job Titlte, Company Logo, Job Category, City, Job Salary. With no options to apply but if this company create this offer they can detete or edit job offer information by the "Edit/Delete" buttons. Also they can not "Apply" for job offers from other companies.
+* **Job Details Page** - Job details like: Job Titlte, Company Logo, Job Category, City, Job Salary. With no options to apply but if this company create this offer they can detete or edit job offer information by the "Edit/Delete" buttons. After all job infomation and description there are list of all job applies. Also they can not "Apply" for job offers from other companies.
 * **Create Job** - With this form only registred companies can create new job offer with following inputs: Job Title, Category, City, Salary, Job Description.
 * **Edit Job** - With this form only registred companies and creator of job offer can edit existed job offer with following inputs: Job Title, Category, City, Salary, Job Description.
 * **Delete Job** - With this button only registred companies and creator of job offer can delete current job offer.

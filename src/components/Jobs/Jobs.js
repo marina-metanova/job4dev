@@ -10,6 +10,7 @@ import './jobs.css';
 export const Jobs = () => {
     const { category } = useParams();
     const { jobs } = useContext(JobContext);
+    
     return (
         <Fragment>
             <div id="breadcrumb">
