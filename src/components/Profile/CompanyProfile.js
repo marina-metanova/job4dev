@@ -34,16 +34,6 @@ export const CompanyProfile = ({ user }) => {
                     </div>
                 </div>
             </div>
-
-            <article className="job-main">
-                <h2 className="h2">Your job offers</h2>
-                <div className="row jobs-list">
-                    {jobs.length > 0
-                        ? jobs.map(job => job._ownerId === user._id ? <Job key={job._id} job={job} /> : "")
-                        : <p className="no-jobs">No jobs yet</p>
-                    }
-                </div>
-            </article>
         </Fragment>
     )
 }
