@@ -17,33 +17,35 @@ This Single Page Application is created as a platform for job offers and positio
 
 For non-registered users. These users have access to:
 
-* **Home page**
-* **About Us**
-* **Jobs**
-* **Job Details Page**
-* **Login**
-* **Register**
+* **Home page** - Main page with some information and list of three job offers.
+* **About Us** - Static page with information about this web site and aout company.
+* **Jobs** - Catalog page with listed all job offers.
+* **Job Details Page** - Job details like: Job Titlte, Company Logo, Job Category, City, Job Salary. With no options to apply.
+* **Login** - Any registerd user cal login from this page.
+* **Register** - Any user/company can register.
 
 ### Private part
 
 For regisred companies:
 
-* **Home page**
-* **About Us**
-* **Profile** 
-* **Jobs**
-* **Job Details Page**
-* **Create Job**
-* **Edit Job**
-* **Delete Job**
+* **Home page** - Main page with some information and list of three job offers.
+* **About Us** - Static page with information about this web site and aout company.
+* **Jobs** - Catalog page with listed all job offers.
+* **Profile**  - Registred company can see details about them.
+* **Job Details Page** - Job details like: Job Titlte, Company Logo, Job Category, City, Job Salary. With no options to apply but if this company create this offer they can detete or edit job offer information by the "Edit/Delete" buttons.
+* **Create Job** - With this form only registred companies can create new job offer with following inputs: Job Title, Category, City, Salary, Job Description.
+* **Edit Job** - With this form only registred companies and creator of job offer can edit existed job offer with following inputs: Job Title, Category, City, Salary, Job Description.
+* **Delete Job** - With this button only registred companies and creator of job offer can delete current job offer.
+* **Logout** - Logout button provides company to logout from their accout.
 
 For registred users:
 
-* **Profile**
-* **Job Details Page with Apply option** 
-
-## Home page
-
+* **Home page** - Main page with some information and list of three job offers.
+* **About Us** - Static page with information about this web site and aout company.
+* **Jobs** - Catalog page with listed all job offers.
+* **Profile**  - Registred users can see details about their information and list of jobs they already applied for.
+* **Job Details Page** - Job details like: Job Titlte, Company Logo, Job Category, City, Job Salary. With options to apply by "Apply" button.
+* **Logout** - Logout button provides user to logout from their accout.
 
 
 ## About project development
