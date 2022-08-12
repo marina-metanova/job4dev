@@ -47,6 +47,9 @@ For registred users:
 * **Job Details Page** - Job details like: Job Titlte, Company Logo, Job Category, City, Job Salary. With options to apply by "Apply" button.
 * **Logout** - Logout button provides user to logout from their accout.
 
+## OneDrive
+
+[https://lmetanovgmail-my.sharepoint.com/:f:/g/personal/marina_metanova_metanov_eu/Et6QLou1ik5Dq4kogQjcUwABavXiBa6_sel4k7S_Soz79A?e=ImgZPg](https://marina_metanova/job4dev)
 
 ## About project development
 
