@@ -55,12 +55,9 @@ export const Header = () => {
                             : ""
                         }
 
-                        {user.email && user.company
-                            ? <li className="nav-item">
+                        {user.email && user.company &&
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/add-job">Add job</NavLink>
-                            </li>
-                            : <li className="nav-item">
-                                <NavLink className="nav-link" to="/companies">Companies</NavLink>
                             </li>
                         }
                     </ul>
