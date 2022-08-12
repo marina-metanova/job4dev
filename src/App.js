@@ -8,6 +8,7 @@ import { JobProvider } from './contexts/JobContext';
 
 
 // Components
+import { PrivateRoute } from './components/PrivateRouth';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Home } from './components/Home/Home';
@@ -37,14 +38,14 @@ function App() {
                             <Route path='/' element={<Home />} />
                             <Route path='/jobs' element={<Jobs />} />
                             <Route path='/:category' element={<Jobs />} />
-                            <Route path='/add-job' element={<AddJob />} />
-                            <Route path='/edit-job/:jobID' element={<EditJob />} />
+                            <Route path='/add-job' element={<PrivateRoute><AddJob /></PrivateRoute>} />
+                            <Route path='/edit-job/:jobID' element={<PrivateRoute><EditJob /></PrivateRoute>} />
                             <Route path='/jobs/:jobID' element={<JobDetails />} />
                             <Route path='/about' element={<About />} />
                             <Route path='/login' element={<Login />} />
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/register' element={<Register />} />
-                            <Route path='/profile' element={<Profile />} />
+                            <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
                             <Route path='/errorPage' element={<ErrorPage />} />
                         </Routes>
                     </JobProvider>
