@@ -49,7 +49,7 @@ For registred users:
 
 ## OneDrive
 
-[https://lmetanovgmail-my.sharepoint.com/:f:/g/personal/marina_metanova_metanov_eu/Et6QLou1ik5Dq4kogQjcUwABavXiBa6_sel4k7S_Soz79A?e=ImgZPg](https://marina_metanova/job4dev)
+[https://marina_metanova/job4dev](https://lmetanovgmail-my.sharepoint.com/:f:/g/personal/marina_metanova_metanov_eu/Et6QLou1ik5Dq4kogQjcUwABavXiBa6_sel4k7S_Soz79A?e=ImgZPg≈)
 
 ## About project development
 
