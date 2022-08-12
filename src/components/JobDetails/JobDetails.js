@@ -46,7 +46,6 @@ export const JobDetails = () => {
 
     const isAppliyed = applies.some(x => x.jobID === jobID && x._ownerId === user._id);
     const appliedUser = applies.filter(x => x.jobID === jobID && x);
-    console.log(appliedUser);
 
     const applyHandler = (e) => {
         e.preventDefault();
@@ -137,7 +136,7 @@ export const JobDetails = () => {
                         <div className="row jobs-list">
                             {appliedUser.length > 0
                                 ? appliedUser.map(job => <UserProfileApply key={job._id} createdOn={job._createdOn} user={job.user} />)
-                                : <p className="no-jobs">No jobs yet</p>
+                                : <p className="no-jobs">No job applies yet!</p>
                             }
                         </div>
                     </section>
