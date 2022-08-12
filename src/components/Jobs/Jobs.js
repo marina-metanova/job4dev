@@ -36,16 +36,6 @@ export const Jobs = () => {
                     }
                     
                 </div>
-
-            <nav>
-                <ul className="pagination justify-content-center">
-                    <li className="page-item"><Link className="page-link page-first" to="/">Previous</Link></li>
-                    <li className="page-item"><Link className="page-link active" to="/">1</Link></li>
-                    <li className="page-item"><Link className="page-link" to="/">2</Link></li>
-                    <li className="page-item"><Link className="page-link" to="/">3</Link></li>
-                    <li className="page-item"><Link className="page-link page-last" to="/">Next</Link></li>
-                </ul>
-            </nav>
         </section>
     </Fragment >
     )
